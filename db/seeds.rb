@@ -9,20 +9,20 @@ file = "#{File.dirname(__FILE__)}/../app/assets/challenge_briefing/starter-code/
 data = JSON.parse(File.read(file))
 
 puts 'Creating shop data'
-data.each do |element|
+data.each do |product|
   # Create category
-  category = Category.find_by(name: element['category'])
+  category = Category.find_by(name: product['category'])
   if category.nil?
-    category = Category.create!(name: element['category'])
+    category = Category.create!(name: product['category'])
   end
-  product = Product.new(name: element['name'], price: element['price'], category: category, description: element['description'], features: element['features'])
-  product_pieces = element['includes'].map do |piece|
+  @product = Product.new(name: product['name'], category: category, new: product['new'] ,price: product['price'], description: product['description'], features: product['features'])
+  product_pieces = product['includes'].map do |piece|
     Piece.create!(name: piece['item'], amount: piece['quantity'])
   end
-  product.pieces = product_pieces
-  product.save!
+  @product.pieces = product_pieces
+  @product.save!
 
-  puts product.inspect
+  puts @product.inspect
 end
 
 puts "#{Product.count} products created"
@@ -70,8 +70,4 @@ data.each_with_index do |product, index|
 end
 
 puts "photos uploaded"
-
-
-# Products.all.each_with_index do |product, index|
-#   product.photos.attach 
-# end
+puts 'zo/'
