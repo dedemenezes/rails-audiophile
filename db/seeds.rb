@@ -34,11 +34,12 @@ def cloudinary_file_name(an_string)
   an_string.match(regex)[0][0...-4]
 end
 
-def attach_product_photos(devices_array, product)
+def attach_product_photos(devices_hash, product)
   puts "Uploading photos to cloudinary"
-  devices_array.each do |device, main_image_path|
+  devices_hash.each do |device, main_image_path|
     # Upload photo to cloudinary
-    uploaded_photo = Cloudinary::Uploader.upload("app/assets/challenge_briefing/starter-code/#{main_image_path}", { public_id: device + '_' + cloudinary_file_name(main_image_path)})
+    public_id = "#{product.name.gsub(" ", "_")}_#{device}_#{cloudinary_file_name(main_image_path)}"
+    uploaded_photo = Cloudinary::Uploader.upload("app/assets/challenge_briefing/starter-code/#{main_image_path}", { public_id: public_id })
     # Open cloudinary file
     file = URI.open(uploaded_photo['url'])
     # attach photo to product

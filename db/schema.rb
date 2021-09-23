@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(version: 2021_09_23_224455) do
     t.bigint "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "new"
+    t.boolean "new", default: false
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 
