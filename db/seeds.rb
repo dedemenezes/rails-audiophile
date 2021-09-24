@@ -15,13 +15,15 @@ data.each do |product|
   if category.nil?
     category = Category.create!(name: product['category'])
   end
+  # Create Product
   @product = Product.new(name: product['name'], category: category, new: product['new'] ,price: product['price'], description: product['description'], features: product['features'])
+  # Create Pieces
   product_pieces = product['includes'].map do |piece|
     Piece.create!(name: piece['item'], amount: piece['quantity'])
   end
+  # Associate pieces
   @product.pieces = product_pieces
   @product.save!
-
   puts @product.inspect
 end
 
@@ -29,6 +31,8 @@ puts "#{Product.count} products created"
 puts "***"
 puts "#{Time.now - start_time} seconds elapsed"
 puts "***"
+
+# Estract filename from img url
 def cloudinary_file_name(an_string)
   regex = /\w*-\w*\W*\d*.jpg$/
   an_string.match(regex)[0][0...-4]
@@ -51,24 +55,34 @@ end
 
 
 data.each_with_index do |product, index|
-  # ./assets/product-yx1-earphones/desktop/image-product.jpg
   # Get product
   @product = Product.find(product['id'])
   puts "Image seed for #{@product.name}"
   # Get main image path for all devices
   devices = product['image']
-  #attach photos
+  # attach photos
   attach_product_photos(devices, @product)
-
   puts '************************'
   puts 'second round'
   product['gallery'].each do |_key, devices|
     attach_product_photos(devices, @product)
   end
-    # devices.each do |device, img_path|
-    #   Cloudinary::Uploader.upload("app/assets/challenge_briefing/starter-code/#{img_path}", { public_id: device + '_' + cloudinary_file_name(img_path)})
-    # end
 end
 
 puts "photos uploaded"
 puts 'zo/'
+
+puts 'creating users'
+user_one = User.create!(username: 'basic', email: 'basic@user.com', first_name: 'Basic', last_name: 'User', phone_number: "+552197#{(1..9).to_a.sample(7)}", password: 123456)
+puts user_one.username
+puts user_one.admin
+puts '*************'
+
+user_two = User.create!(username: 'admin', email: 'dede@menezes.com', first_name: 'dede', last_name: 'menezes', phone_number: "+552197#{(1..9).to_a.sample(7)}", password: 123456, admin: true)
+puts user_two.username
+puts user_two.admin
+puts '*************'
+puts "Product count: #{Product.count}"
+puts "User count: #{User.count}"
+
+puts 'DONE!'
