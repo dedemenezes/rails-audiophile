@@ -8,4 +8,5 @@ class Product < ApplicationRecord
 
   validates :name, :price, :description, :features, presence: true
   validates :name, uniqueness: { case_sensitive: false }
+  validates :price, numericality: { greater_than: 10 }
 end
