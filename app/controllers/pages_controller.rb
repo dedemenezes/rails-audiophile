@@ -5,7 +5,8 @@ class PagesController < ApplicationController
     # unless user_signed_in?
     #   cookies[:user] = 'temporary cart'
     # end
-    # @cookies - cookies
 
+    # @cookies - cookies
+    @categories = Category.all
   end
 end

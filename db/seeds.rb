@@ -72,6 +72,16 @@ end
 puts "photos uploaded"
 puts 'zo/'
 
+puts 'Attaching photos to Categories'
+Category.all.each do |category|
+  public_id = category.name
+  uploaded_photo = Cloudinary::Uploader.upload("app/assets/images/image-#{public_id}.png", { public_id: public_id })
+  file = URI.open(uploaded_photo['url'])
+  # attach photo to product
+  puts "attaching photo..."
+  category.photo.attach(io: file, filename: uploaded_photo['public_id'], content_type: 'image/png')
+end
+
 puts 'creating users'
 user_one = User.create!(username: 'basic', email: 'basic@user.com', first_name: 'Basic', last_name: 'User', phone_number: "+552197#{(1..9).to_a.sample(7)}", password: 123456)
 puts user_one.username

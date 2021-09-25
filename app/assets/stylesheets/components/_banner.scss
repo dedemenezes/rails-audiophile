@@ -27,3 +27,10 @@
   margin-bottom: 2.5rem;
   color: rgba(194, 194, 194, .85);
 }
+
+@media (max-width: 578px) {
+  .main-banner {
+    background-position-y: center;
+    background-size: cover
+  }
+}

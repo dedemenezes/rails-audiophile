@@ -1,0 +1,29 @@
+.card-product {
+  text-align: center;
+  background-color: $light-gray;
+  height: 70%;
+  margin-bottom: 72px;
+  box-shadow: 0 0 4px rgba(0,0,0,0.1);
+}
+
+.card-image {
+  margin: auto 40px;
+  margin-top: -40px;
+}
+
+.card-title {
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.7px;
+}
+
+.card-link {
+  text-decoration: none;
+  text-align: center;
+  color: rgb(170,170,170);
+}
+
+.cards {
+  padding: 58px 24px;
+  background-color: white;
+}

@@ -28,3 +28,20 @@
   </div>
 </div>
 
+<div class="container">
+  <div class="cards row">
+    <% @categories.each do |category| %>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card-product">
+          <%= cl_image_tag category.photo.key, width: '45%', class: 'card-image' %>
+          <h3 class="card-title"><%= category.name.upcase %></h3>
+          <div class="bottom-link d-flex align-items-center justify-content-center">
+            <%= link_to  "Shop", '#', class: 'card-link mr-2' %>
+            <%= image_tag 'icon-arrow-right' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
