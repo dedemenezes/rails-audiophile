@@ -1,12 +1,28 @@
 require 'open-uri'
 
 # START
+start_total = Time.now
 start_time = Time.now
+
+# Cleaning DB
+puts 'destroying Category'
+Category.destroy_all
+puts 'destroying Product'
+Product.destroy_all
+puts 'destroying Piece'
+Piece.destroy_all
+puts 'destroying User'
+User.destroy_all
+puts 'DB clean zo/'
+puts "#{Time.now - start_time} seconds"
+
 
 # Parse JSON data 
 file = "#{File.dirname(__FILE__)}/../app/assets/challenge_briefing/starter-code/data.json"
 data = JSON.parse(File.read(file))
 
+
+start_time = Time.now
 puts 'Creating shop data'
 data.each do |product|
   # Create category
@@ -28,7 +44,7 @@ end
 
 puts "#{Product.count} products created"
 puts "***"
-puts "#{Time.now - start_time} seconds elapsed"
+puts "#{Time.now - start_time} seconds"
 puts "***"
 
 # Estract filename from img url
@@ -52,6 +68,7 @@ def attach_product_photos(devices_hash, product)
   puts "photos attached"
 end
 
+start_time = Time.now
 
 data.each_with_index do |product, index|
   # Get product
@@ -70,7 +87,9 @@ end
 
 puts "photos uploaded"
 puts 'zo/'
+puts "#{Time.now - start_time} seconds"
 
+start_time = Time.now
 puts 'Attaching photos to Categories'
 Category.all.each do |category|
   public_id = category.name
@@ -80,7 +99,9 @@ Category.all.each do |category|
   puts "attaching photo..."
   category.photo.attach(io: file, filename: uploaded_photo['public_id'], content_type: 'image/png')
 end
+puts "#{Time.now - start_time} seconds"
 
+start_time = Time.now
 puts 'creating users'
 user_one = User.create!(username: 'basic', email: 'basic@user.com', first_name: 'Basic', last_name: 'User', phone_number: "+552197#{(1..9).to_a.sample(7)}", password: 123456)
 puts user_one.username
@@ -93,5 +114,7 @@ puts user_two.admin
 puts '*************'
 puts "Product count: #{Product.count}"
 puts "User count: #{User.count}"
+puts "#{Time.now - start_time} seconds"
 
-puts 'DONE!'
+puts 'DONE!}'
+puts "#{Time.now - start_total} seconds"
