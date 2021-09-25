@@ -78,7 +78,7 @@ puts user_one.username
 puts user_one.admin
 puts '*************'
 
-user_two = User.create!(username: 'admin', email: 'dede@menezes.com', first_name: 'dede', last_name: 'menezes', phone_number: "+552197#{(1..9).to_a.sample(7)}", password: 123456, admin: true)
+user_two = User.create!(username: 'admin', email: 'admin@user.com', first_name: 'Admin', last_name: 'User', phone_number: "+552197#{(1..9).to_a.sample(7)}", password: 123456, admin: true)
 puts user_two.username
 puts user_two.admin
 puts '*************'

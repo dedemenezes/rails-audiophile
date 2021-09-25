@@ -1,0 +1,29 @@
+.main-banner {
+  background-image: url(asset_path('image-header.jpg')), linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));
+  background-size: cover;
+  height: 70vh;
+  background-position-y: -96px;
+}
+
+.banner-content {
+  padding: 96px 24px 0 24px;
+  text-align: center;
+}
+
+.third-header {
+  color: #d6d6d6a6;
+  letter-spacing: 7px;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, .8);
+}
+
+.main-header {
+  color: white;
+  font-weight: 600;
+  text-shadow: 2px 2px 4px #00000096;
+  margin-bottom: 1.5rem;
+}
+
+.sub-header {
+  margin-bottom: 2.5rem;
+  color: rgba(194, 194, 194, .85);
+}

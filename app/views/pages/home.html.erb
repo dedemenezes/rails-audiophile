@@ -1,2 +1,30 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<nav class="nav-main nav-bg">
+  <div class="my-menu">
+    <p class="line"></p>
+    <p class="line"></p>
+    <p class="line"></p>
+  </div>
+  <a href="#">
+    <%= image_tag 'logo'%>
+  </a>
+  
+  <div class="nav-menu">
+    <a href="#" class="navbar-link mx-4">Home</a>
+    <a href="#" class="navbar-link mx-4">Headphones</a>
+    <a href="#" class="navbar-link mx-4">Speakers</a>
+    <a href="#" class="navbar-link mx-4">Earphones</a>
+  </div>
+  <a href="#">
+    <%= image_tag 'icon-cart'%>
+  </a>
+</nav>
+
+<div class="main-banner">
+  <div class="banner-content">
+    <p class='third-header'>NEW PRODUCT</p>
+    <h1 class="main-header">XX99 Mark II Headphones</h1>
+    <p class='sub-header'>Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.</p>
+    <%= link_to  "See product", product_path(Product.find_by(name: 'XX99 Mark II Headphones')), class: 'home-btn' %>
+  </div>
+</div>
+

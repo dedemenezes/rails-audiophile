@@ -10,3 +10,36 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.nav-bg {
+  background-color: rgb(25, 25, 25);
+}
+
+.nav-main {
+  padding: 36px 18px;
+  display: flex;
+  border-bottom: 4px rgb(126, 126, 126);
+}
+
+.nav-menu {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.line {
+  height: 4px;
+  width: 36px;
+  background-color: white;
+  margin: 4px;
+}
+
+@media (max-width: 576px) {
+  .nav-main {
+    justify-content: space-between;
+  }
+  .nav-menu {
+    display: none;
+  }
+}
