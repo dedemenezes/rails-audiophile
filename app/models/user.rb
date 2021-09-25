@@ -6,7 +6,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
-  has_one :cart, dependent: :destroy
+  has_one :cart
   validates :first_name, :last_name, :username, :phone_number, presence: true
   validates :username, uniqueness: { case_sensitive: false }
 end
