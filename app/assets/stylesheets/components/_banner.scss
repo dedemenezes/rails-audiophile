@@ -28,7 +28,7 @@
   color: rgba(194, 194, 194, .85);
 }
 
-@media (max-width: 578px) {
+@media (min-width: 768px) {
   .main-banner {
     background-position-y: center;
     background-size: cover
