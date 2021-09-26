@@ -5,7 +5,7 @@
     <p class="line"></p>
   </div>
   <a href="#">
-    <%= image_tag 'logo'%>
+    <%= image_tag "http://res.cloudinary.com/seguraocode/image/upload/v1632693702/logo.png" %>
   </a>
   
   <div class="nav-menu">
@@ -15,7 +15,7 @@
     <a href="#" class="navbar-link mx-4">Earphones</a>
   </div>
   <a href="#">
-    <%= cl_image_tag "https://res.cloudinary.com/seguraocode/image/upload/v1632598142/icon-arrow.svg"%>
+    <%= image_tag "http://res.cloudinary.com/seguraocode/image/upload/v1632693479/icon-cart.png" %>
   </a>
 </nav>
 
@@ -37,7 +37,7 @@
           <h3 class="card-title"><%= category.name.upcase %></h3>
           <div class="bottom-link d-flex align-items-center justify-content-center">
             <%= link_to  "Shop", category_path(category), class: 'card-link mr-2' %>
-            <%= image_tag 'icon-arrow-right' %>
+            <%= image_tag "http://res.cloudinary.com/seguraocode/image/upload/v1632693653/icon-arrow-right.png" %>
           </div>
         </div>
       </div>

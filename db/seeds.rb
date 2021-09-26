@@ -16,7 +16,7 @@ puts 'DB clean zo/'
 products = SeedsHelper::ParseData.json_db
 
 # Create shop data. Categories, Pieces and Products
-SeedsHelper::ShopData.set_shop(products)
+SeedsHelper::ShopData.create_shop(products)
 
 # Upload all images to cloudinary
 products.each_with_index do |product, index|

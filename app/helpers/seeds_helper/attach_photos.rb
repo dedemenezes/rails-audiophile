@@ -1,14 +1,13 @@
 module SeedsHelper
   module AttachPhotos
-    def self.to_products(product, index)
+    def self.to_products(product, _index)
       # Get product
       @product = Product.find_by(name: product['name'])
       puts "Attaching photos to #{@product.name}"
       # Get main image path for all devices
-      devices = product['image']
       # attach photos
       puts "Main photo"
-      attach_product_photos(devices, @product)
+      attach_product_photos(product['image'], @product)
       puts 'Gallery photos'
       product['gallery'].each do |_key, devices|
         attach_product_photos(devices, @product)
