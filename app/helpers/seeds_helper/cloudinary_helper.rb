@@ -1,5 +1,11 @@
 module SeedsHelper
   module CloudinaryHelper
+
+    def self.upload_home_images(image_path)
+      public_id = file_name(image_path)
+      Cloudinary::Uploader.upload(image_path, { public_id: public_id })
+    end
+  
     def self.product_main_image(product)
       # Upload photo to cloudinary
       product['image'].each do |device, img_path|

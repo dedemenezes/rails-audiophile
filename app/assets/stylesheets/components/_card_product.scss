@@ -9,6 +9,11 @@
 .card-image {
   margin: auto 40px;
   margin-top: -40px;
+  padding: 24px;
+}
+
+.bg-orange {
+  background-color: #D87C49;
 }
 
 .card-title {
@@ -28,7 +33,13 @@
   background-color: white;
 }
 
-
 .second-speaker {
-  background-image: url();
+  height: 50vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: 20%;
+}
+
+.top-speaker {
+  text-align: center;
 }

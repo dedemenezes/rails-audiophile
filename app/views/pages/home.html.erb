@@ -1,17 +1,18 @@
 <%= render 'shared/banner' %>
 <%= render 'shared/category_cards' %>
 
-  <div class="top-speaker">
+<div class="container">
+  <div class="top-speaker bg-orange">
     <div class="row">
       <div class="col-xs-12">
-        <%= cl_image_tag @top_products[:first].photos.first.key, width: '70%', class: 'card-image' %>
+        <%= image_tag Cloudinary::Utils.cloudinary_url("speaker-zx9"), width: '50%', class: 'card-image' %>
         <p><%= @top_products[:first].name %></p>
       </div>
     </div>
   </div>
 </div>
 
-<div class="second-speaker" style="background-image: url('<%= cl_image_tag @top_products[:second].photos.first.key %>')">
+<div class="second-speaker" style="background-image: url(<%= Cloudinary::Utils.cloudinary_url("speaker-zx7")%>)">
   <div class="row">
     <div class="col-xs-12">
       <p><%= @top_products[:second].name %></p>
