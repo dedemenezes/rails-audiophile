@@ -9,4 +9,11 @@ class Product < ApplicationRecord
   validates :name, :price, :description, :features, presence: true
   validates :name, uniqueness: { case_sensitive: false }
   validates :price, numericality: { greater_than: 10 }
+
+  def self.top_products
+    # max_price = Product.maximum('price')
+    # most_expensive_product = Product.find_by(price: max_price)
+    ordered = all.order('price').reverse
+    { first: ordered.first, second: ordered.second }
+  end
 end

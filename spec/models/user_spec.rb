@@ -25,8 +25,8 @@ RSpec.describe User, type: :model do
   context "Associations" do
     it { should have_one(:cart) }
     it { should have_many(:cart_products).through(:cart) }
-    it { should have_many(:products).through(:cart_products) }    
+    it { should have_many(:products).through(:cart_products) }
   end
-  
+
   # pending "add some examples to (or delete) #{__FILE__}"
 end

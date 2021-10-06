@@ -21,5 +21,4 @@ RSpec.describe Piece, type: :model do
     it { should have_many(:product_pieces) }
     it { should have_many(:products).through(:product_pieces) }
   end
-  
 end
