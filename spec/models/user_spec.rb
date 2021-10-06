@@ -36,6 +36,12 @@ RSpec.describe User, type: :model do
       expect(new_user.valid?).to eq(false)
     end
   end
+
+  context "Associations" do
+    it { should have_one(:cart) }
+    it { should have_many(:cart_products).through(:cart) }
+    it { should have_many(:products).through(:cart_products) }    
+  end
   
   # pending "add some examples to (or delete) #{__FILE__}"
 end
