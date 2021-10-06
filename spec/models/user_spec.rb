@@ -2,15 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   before :each do
-    @attributes = {
-      email: 'basicuser@test.com',
-      password: 123456,
-      first_name: 'Basic',
-      last_name: 'User',
-      username: 'basic_user',
-      phone_number: '+5521972614293'
-    }
-    @user = User.new(@attributes)
+    @user = FactoryBot.create(:user)
   end
 
   context "Validations" do
@@ -29,10 +21,7 @@ RSpec.describe User, type: :model do
       expect(@user).to be_valid
     end
     it 'should have unique first name' do
-      @user.save
-      @attributes[:username] = "francis"
-      @attributes[:email] = "francis@test.com"
-      new_user = described_class.new(@attributes)
+      new_user = FactoryBot.build(:user, email: "francis@test.com")
       expect(new_user.valid?).to eq(false)
     end
   end
