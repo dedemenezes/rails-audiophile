@@ -10,5 +10,5 @@ class User < ApplicationRecord
   has_many :cart_products, through: :cart
   has_many :products, through: :cart_products
   validates :first_name, :last_name, :username, :phone_number, presence: true
-  validates :username, :first_name, uniqueness: { case_sensitive: false }
+  validates :username, uniqueness: { case_sensitive: false }
 end

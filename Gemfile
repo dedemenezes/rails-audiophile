@@ -63,6 +63,8 @@ group :development do
   gem "factory_bot_rails"
   # Clean test DB
   gem 'database_cleaner-active_record'
+  # Generate Fake data
+  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 end
 
 group :test do

@@ -2,11 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Piece, type: :model do
   before :each do
-    @attributes = {
-      name: 'Speaker unit',
-      amount: 2
-    }
-    @piece = Piece.new(@attributes)
+    @piece = FactoryBot.build(:piece)
   end
 
   context "Validations" do

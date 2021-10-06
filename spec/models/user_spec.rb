@@ -20,10 +20,6 @@ RSpec.describe User, type: :model do
     it 'should be valid with valid attributes' do
       expect(@user).to be_valid
     end
-    it 'should have unique first name' do
-      new_user = FactoryBot.build(:user, email: "francis@test.com")
-      expect(new_user.valid?).to eq(false)
-    end
   end
 
   context "Associations" do
