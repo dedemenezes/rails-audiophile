@@ -3,6 +3,6 @@ class PagesController < ApplicationController
 
   def home
     @categories = Category.all
-    @top_products = Product.top_products
+    @top_two = Product.top_two
   end
 end

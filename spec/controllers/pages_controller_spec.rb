@@ -1,5 +1,5 @@
 require 'rails_helper'
-
+require 'pry-byebug'
 RSpec.describe PagesController, type: :controller do
   context "GET Home Page" do
     let(:category) { create(:category) }
@@ -17,10 +17,14 @@ RSpec.describe PagesController, type: :controller do
 
     it 'should load top two products' do
       create(:product)
+      create(:product)
+      create(:product)
+      
       get :home
-      expect(assigns(:top_products)).to be_a(Hash)
-      expect(assigns(:top_products).size).to eq(2)
-      expect(assigns(:top_products)[:first]).to be_a(Product)
+      expect(assigns(:top_two)).to be_a(Hash)
+      expect(assigns(:top_two).size).to eq(2)
+      expect(assigns(:top_two)[:first]).to be_a(Product)
+
     end
   end
 end

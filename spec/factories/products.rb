@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :product do
     sequence(:name) { |n| "Speaker #{n}" }
-    price { 200 }
+    price { (200..1000).to_a.sample }
     description do
       "
       Upgrade your sound system with the all new ZX9 active speaker.\
