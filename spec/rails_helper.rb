@@ -1,4 +1,6 @@
 require 'database_cleaner/active_record'
+require 'capybara/rspec'
+require 'selenium-webdriver'
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
@@ -78,6 +80,19 @@ RSpec.configure do |config|
   end
 
   config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Devise::TestHelpers, type: :view
+
+  # Capybara.register_driver :headless_chrome do |app|
+  #   options = Selenium::WebDriver::Chrome::Options.new(args: %w[no-sandbox headless disable-gpu window-size=1400,900])
+  #   Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
+  # end
+  # Capybara.save_path = Rails.root.join('tmp/capybara')
+  # Capybara.javascript_driver = :headless_chrome
+  
+  # Make sure drivers dont fail under parallel testing
+  # Webdrivers::Chromedriver.update
+  
+  # driven_by :selenium, using: :chrome, screen_size: [1400, 1400]
 end
 
 Shoulda::Matchers.configure do |config|
