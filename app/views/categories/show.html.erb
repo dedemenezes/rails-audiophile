@@ -1,0 +1,8 @@
+<ul>
+  <% @category.products.each do |p| %>
+    <li>
+      <p><%= p.name %></p>
+      <%= link_to  "Add to cart", "#", style: 'color: black' %>
+    </li>
+  <% end %>
+</ul>

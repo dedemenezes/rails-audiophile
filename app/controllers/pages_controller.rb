@@ -4,5 +4,6 @@ class PagesController < ApplicationController
   def home
     @categories = Category.all
     @top_two = Product.top_two
+    @cart = Cart.new
   end
 end

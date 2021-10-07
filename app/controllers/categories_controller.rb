@@ -1,5 +1,11 @@
 class CategoriesController < ApplicationController
   before_action :set_products
+
+  def index
+    @categories = policy_scope(Category)
+    authorize @categories
+  end
+
   def show
     @category = Category.find(params[:id])
     authorize @category
