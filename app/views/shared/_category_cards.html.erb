@@ -3,7 +3,7 @@
     <% @categories.each do |category| %>
       <div class="col-xs-12 col-sm-4">
         <div class="card-product">
-          <%= cl_image_tag category.photo.key, width: '45%', class: 'card-image' %>
+          <%= cl_image_tag category.photo.key, width: '60%', class: 'card-image' %>
           <h3 class="card-title"><%= category.name.upcase %></h3>
           <div class="bottom-link d-flex align-items-center justify-content-center">
             <%= link_to  "Shop", category_path(category), class: 'card-link mr-2' %>

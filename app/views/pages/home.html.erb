@@ -2,12 +2,12 @@
 <%= render 'shared/category_cards' %>
 
 <div class="container">
-  <div class="top-speaker bg-orange">
-    <div class="row">
-      <div class="col-xs-12">
-        <%= image_tag Cloudinary::Utils.cloudinary_url("speaker-zx9"), width: '50%', class: 'card-image' %>
-        <p><%= @top_products[:first].name %></p>
-      </div>
+  <div class="row">
+    <div class="col-xs-12 bg-orange top-item">
+      <%= image_tag Cloudinary::Utils.cloudinary_url("speaker-zx9"), width: '50%', class: '' %>
+      <p class='top-item-name'><%= @top_two[:first].name %></p>
+      <p class='top-item-description'>Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.</p>
+      <%= link_to  "SEE PRODUCT", '#', class: 'black-button' %>
     </div>
   </div>
 </div>
@@ -15,7 +15,7 @@
 <div class="second-speaker" style="background-image: url(<%= Cloudinary::Utils.cloudinary_url("speaker-zx7")%>)">
   <div class="row">
     <div class="col-xs-12">
-      <p><%= @top_products[:second].name %></p>
+      <p><%= @top_two[:second].name %></p>
     </div>
   </div>
 </div>
