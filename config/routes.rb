@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   
   resources :categories, only: %i[index show]
   resources :products, only: :show
-  resources :cart, only: :show
+  resources :carts, only: :show
   resources :cart_products, only: %i[create]
 end
