@@ -14,7 +14,7 @@
     <a href="#" class="navbar-link mx-4">Speakers</a>
     <a href="#" class="navbar-link mx-4">Earphones</a>
   </div>
-  <a href="#">
+  <%= link_to cart_path(@cart.id) do %>
     <%= image_tag "http://res.cloudinary.com/seguraocode/image/upload/v1632693479/icon-cart.png" %>
-  </a>
+  <% end %>
 </nav>
