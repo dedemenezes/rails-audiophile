@@ -1,0 +1,42 @@
+.summary {
+  padding: 1.5rem;
+}
+.checkout-card {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.checkout-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  margin-left: 1rem;
+  img {
+    border: solid 1px white;
+    border-radius: 50px;
+  }
+}
+
+.product-amount {
+  color: grey;
+  opacity: 0.9;
+}
+.product-price {
+  color: grey;
+}
+
+.summary-checkout {
+  display: flex;
+  justify-content: space-between;
+}
+
+.gray-text {
+  color: grey;
+  opacity: 0.9;
+}
+
+.bold-n-black {
+  font-weight: bold;
+}
