@@ -12,7 +12,7 @@ RSpec.describe "Products", type: :system do
     end
 
     it 'banner link to product' do
-      # expect(page).to 
+      # expect(page).to
     end
   end
 end

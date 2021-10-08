@@ -1,15 +1,24 @@
+require 'pry-byebug'
 class CartProductsController < ApplicationController
+  before_action :set_cart
 
-  def new
-    @cart_product = CartProduct.new(cart_product_params)
+  def create
+    @product = Product.find(product_params[:product_id].to_i)
+    @cart_product = CartProduct.new(product: @product, cart: @cart)
     authorize @cart_product
     if @cart_product.save
-      redirect_to _path
+      redirect_to product_path(@product.id)
+      flash[:notice] = "Product added to cart"
+    else
+      render :back
+      flash[:alert] = "Product NOTTTT added to cart"
+    end
+    # binding.pry
   end
 
   private
 
-  def cart_product_params
-    params.require(:cart_product_id).permit(:product, :cart)
+  def product_params
+    params.require(:cart_product).permit(:product_id)
   end
 end

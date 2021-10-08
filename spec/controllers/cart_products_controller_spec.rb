@@ -9,7 +9,7 @@ RSpec.describe "CartProducts", type: :controller do
 
   describe "#create" do
     it 'should add product to cart' do
-      post :create, params: {id: subject.id, user: user}
+      post :create, params: { id: subject.id, user: user }
     end
   end
 end

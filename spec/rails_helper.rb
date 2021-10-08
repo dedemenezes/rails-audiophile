@@ -88,10 +88,10 @@ RSpec.configure do |config|
   # end
   # Capybara.save_path = Rails.root.join('tmp/capybara')
   # Capybara.javascript_driver = :headless_chrome
-  
+
   # Make sure drivers dont fail under parallel testing
   # Webdrivers::Chromedriver.update
-  
+
   # driven_by :selenium, using: :chrome, screen_size: [1400, 1400]
 end
 

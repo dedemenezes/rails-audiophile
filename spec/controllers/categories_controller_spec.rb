@@ -25,13 +25,13 @@ RSpec.describe CategoriesController, type: :controller do
     let(:user) { create(:user) }
     it 'should not render for not looged in user' do
       sign_out(:user)
-      get :show, params: { id: category.id}
+      get :show, params: { id: category.id }
       expect(response).to have_http_status(302)
       # expect(response).to render_template('devise/sessions/new')
     end
 
     it 'should access and render show page' do
-      get :show, params: { id: category.id}
+      get :show, params: { id: category.id }
       expect(response).to have_http_status(:ok)
       expect(response).to render_template(:show)
     end

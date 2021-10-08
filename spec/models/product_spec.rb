@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Product, type: :model do
-
   context "Validations" do
     let(:product) { FactoryBot.build(:product) }
     it 'must have name' do

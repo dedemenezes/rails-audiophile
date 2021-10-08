@@ -20,7 +20,7 @@ RSpec.describe PagesController, type: :controller do
       create(:product)
       create(:product)
       create(:product)
-      
+
       get :home
       expect(assigns(:top_two)).to be_a(Hash)
       expect(assigns(:top_two).size).to eq(2)
