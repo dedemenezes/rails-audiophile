@@ -1,8 +1,16 @@
-<ul>
-  <% @category.products.each do |p| %>
-    <li>
-      <p><%= p.name %></p>
-      <%= link_to  "Add to cart", "#", style: 'color: black' %>
-    </li>
-  <% end %>
-</ul>
+<div class="container">
+  <ul>
+    <% @category.products.each do |p| %>
+        <li>
+          <div class="product-card">
+            <%= image_tag p.get_main_image('mobile'), class: 'product-image' %>
+            <div class="product-content">
+              <h3><%= p.name %></h3>
+              <p><%= p.description %></p>
+              <%= link_to  "SEE PRODUCT", product_path(p.id), class: 'home-btn' %>
+            </div>
+          </div>
+        </li>
+    <% end %>
+  </ul>
+</div>
