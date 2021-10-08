@@ -30,6 +30,7 @@ RSpec.describe PagesController, type: :controller do
     it 'should assign a shopping cart' do
       get :home
       expect(assigns(:cart)).to be_a(Cart)
+      expect(cart.products).to be_empty
       # TO-DO
     end
   end
