@@ -2,7 +2,7 @@
   <div class="product-card">
     <%= cl_image_tag @product.get_main_image('mobile').key, class: 'product-image' %>
     <div class="product-description">
-      <% if @product.new %>
+      <% if @product.is_new %>
         <h4 class='product-new'>NEW PRODUCT</h4>
       <% end %>
       <h3><%= @product.name %></h3>
