@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'pry-byebug'
 RSpec.describe PagesController, type: :controller do
   context "GET Home Page" do
     # let(:category) { create(:category) }

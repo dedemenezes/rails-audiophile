@@ -15,7 +15,6 @@ puts 'DB clean zo/'
 
 # Parse JSON data 
 products = SeedsHelper::ParseData.json_db
-# binding.pry
 
 # Create shop data. Categories, Pieces and Products
 SeedsHelper::ShopData.create_shop(products)

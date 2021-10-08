@@ -1,4 +1,3 @@
-require 'pry-byebug'
 class CartProductsController < ApplicationController
   before_action :set_cart
 
@@ -13,7 +12,6 @@ class CartProductsController < ApplicationController
       render :back
       flash[:alert] = "Product NOTTTT added to cart"
     end
-    # binding.pry
   end
 
   private

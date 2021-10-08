@@ -1,5 +1,4 @@
 require 'faker'
-require 'pry-byebug'
 # # Returns a User instance that's not saved
 # user = build(:user)
 
