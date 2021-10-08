@@ -35,11 +35,18 @@
   margin: 4px;
 }
 
+.my-menu {
+  display: none;
+}
+
 @media (max-width: 576px) {
   .nav-main {
     justify-content: space-between;
   }
   .nav-menu {
     display: none;
+  }
+  .my-menu {
+    display: block;
   }
 }
