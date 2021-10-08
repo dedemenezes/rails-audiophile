@@ -1,14 +1,8 @@
 class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
-    @images = get_images('mobile')
+    @main_image = @product.get_main_image('mobile')
+    @gallery_images = @product.get_gallery_images('mobile').uniq
     authorize @product
-  end
-
-  private
-
-  def get_images(device)
-    name = @product.name.gsub(" ", "_")
-    ActiveStorage::Blob.where('filename LIKE ?', "#{name}%#{device}%")
   end
 end
