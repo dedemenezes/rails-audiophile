@@ -10,6 +10,8 @@ class Product < ApplicationRecord
   # validates :name, uniqueness: { case_sensitive: false }
   validates :price, numericality: { greater_than: 10 }
 
+  before_destroy :ensure_not_referenced_by_any_cart_product
+
   def self.most_expensive
     order(:price).reverse.first
   end
@@ -20,4 +22,31 @@ class Product < ApplicationRecord
     ordered = all.order('price').reverse
     { first: ordered.first, second: ordered.second }
   end
+
+  def get_main_image(device)
+    placeholder = "#{self.name.gsub(" ", "_")}%#{device}%product%"
+    ActiveStorage::Blob.where('filename LIKE ?', placeholder).first
+  end
+  
+  def get_gallery_images(device)
+    name_use = name.gsub(" ", "_")
+    ActiveStorage::Blob.where('filename LIKE ?', "#{name_use}%#{device}%gallery%")
+  end
+
+  def price_to_s
+    if price.digits.size > 3
+      price_str = price.to_s
+      "$#{price_str[0...-3]}.#{price_str[-3..-1]},00"
+    else
+      "$#{price},00"
+    end
+  end
+  private
+
+  def ensure_not_referenced_by_any_cart_product
+    unless cart_products.empty?
+
+    end
+  end
+
 end
