@@ -41,6 +41,10 @@ class Product < ApplicationRecord
       "$#{price},00"
     end
   end
+
+  def is_new
+    new
+  end
   private
 
   def ensure_not_referenced_by_any_cart_product
