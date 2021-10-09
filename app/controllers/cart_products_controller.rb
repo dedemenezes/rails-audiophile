@@ -20,7 +20,11 @@ class CartProductsController < ApplicationController
     authorize @cart_product
     if @cart_product.destroy
       flash[:notice] = "Product removed from cart"
-      redirect_to cart_path(@cart_product.cart)
+      if @cart.empty?
+        redirect_to root_path 
+      else
+        redirect_to cart_path(@cart_product.cart)
+      end
     else
       flash[:alert] = "Product NOT removed from cart"
       redirect_to cart_path(@cart_product.cart)
