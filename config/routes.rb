@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   # get '/category/:id', to: 'categories#show', as: :category
   
   resources :categories, only: %i[index show]
+  resources :cart_products, only: %i[create destroy]
+  # delete '/cart_products/:id', to: 'cart_products#destroy', as: 'delete_cart_product'
   resources :products, only: :show
   resources :carts, only: :show
-  resources :cart_products, only: %i[create]
 end

@@ -8,7 +8,13 @@
           <p><%= product.name.gsub(" #{product.category.name.capitalize}", "") %></p>
           <p class='product-price'><%= product.price_to_s %></p>
         </div>
-        <p class='gray-text'>x<%= @cart.products.where("name LIKE ?", product.name).count %></p>
+        <div class="card-action">
+          <p class='gray-text'>x<%= @cart.products.where("name LIKE ?", product.name).count %></p>
+          <%= link_to "Remove",
+            cart_product_path(@cart.find_cart_product(product).id),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+        </div>
       </div>
     <% end %>
     <div class="total summary-checkout">

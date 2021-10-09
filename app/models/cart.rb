@@ -14,4 +14,8 @@ class Cart < ApplicationRecord
       "$#{price},00"
     end
   end
+
+  def find_cart_product(product)
+    cart_products.where('product_id = ?', product.id).first
+  end
 end
