@@ -16,9 +16,15 @@ class CartProductsController < ApplicationController
   end
 
   def destroy
-    @cart_product = CarProduct.find(params[:id])
-    binding.pry
-    @cart_product
+    @cart_product = CartProduct.find(params[:id])
+    authorize @cart_product
+    if @cart_product.destroy
+      flash[:notice] = "Product removed from cart"
+      redirect_to cart_path(@cart_product.cart)
+    else
+      flash[:alert] = "Product NOT removed from cart"
+      redirect_to cart_path(@cart_product.cart)
+    end
   end
 
   private
