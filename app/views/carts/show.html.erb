@@ -1,44 +1,53 @@
 <div class="container">
   <div class="summary">
-    <h2>SUMMARY</h2>
-    <% @cart.products.each do |product| %>
-      <div class="checkout-card">
-        <%= cl_image_tag product.get_main_image('mobile').key, width: '25%', radius: 100 %>
-        <div class="checkout-content">
-          <p><%= product.name.gsub(" #{product.category.name.capitalize}", "") %></p>
-          <p class='product-price'><%= product.price_to_s %></p>
+    <% if @cart.empty? %>
+      <%= link_to '#', class: 'close-icon' do %>
+        <%= icon('fas', 'times') %>
+      <% end %>
+      <p class='cart-empty'>Your shopping cart is empty. </p>
+    <% else %>
+    
+      <h2>SUMMARY</h2>
+      <% @cart.products.each do |product| %>
+        <div class="checkout-card">
+          <%= cl_image_tag product.get_main_image('mobile').key, width: '25%', radius: 100 %>
+          <div class="checkout-content">
+            <p><%= product.name.gsub(" #{product.category.name.capitalize}", "") %></p>
+            <p class='product-price'><%= product.price_to_s %></p>
+          </div>
+          <div class="card-action">
+            <p class='gray-text'>x<%= @cart.products.where("name LIKE ?", product.name).count %></p>
+            <%= link_to "Remove",
+              cart_product_path(@cart.find_cart_product(product).id),
+              method: :delete,
+              data: { confirm: "Are you sure?" } %>
+          </div>
         </div>
-        <div class="card-action">
-          <p class='gray-text'>x<%= @cart.products.where("name LIKE ?", product.name).count %></p>
-          <%= link_to "Remove",
-            cart_product_path(@cart.find_cart_product(product).id),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %>
-        </div>
+      <% end %>
+      <div class="total summary-checkout">
+        <p class='gray-text'>TOTAL:</p>
+        <p class='bold-n-black'><%= @cart.total_price %></p>
       </div>
+      <div class="shipping summary-checkout">
+        <p class='gray-text'>Shipping:</p>
+        <p class='bold-n-black'><%= @cart.total_price %></p>
+      </div>
+      <div class="vat summary-checkout">
+        <p class='gray-text'>Vat:</p>
+        <p class='bold-n-black'><%= @cart.total_price %></p>
+      </div>
+      <div class="grand-total summary-checkout">
+        <p class='gray-text'>Grand-total:</p>
+        <p class='bold-n-black'><%= @cart.total_price %></p>
+      </div>
+      <div class="shipping">
+      </div>
+      <div class="vat">
+      </div>
+      <div class="grand-total">
+      </div>
+      <button class="home-btn"></button>
     <% end %>
-    <div class="total summary-checkout">
-      <p class='gray-text'>TOTAL:</p>
-      <p class='bold-n-black'><%= @cart.total_price %></p>
-    </div>
-    <div class="shipping summary-checkout">
-      <p class='gray-text'>Shipping:</p>
-      <p class='bold-n-black'><%= @cart.total_price %></p>
-    </div>
-    <div class="vat summary-checkout">
-      <p class='gray-text'>Vat:</p>
-      <p class='bold-n-black'><%= @cart.total_price %></p>
-    </div>
-    <div class="grand-total summary-checkout">
-      <p class='gray-text'>Grand-total:</p>
-      <p class='bold-n-black'><%= @cart.total_price %></p>
-    </div>
-    <div class="shipping">
-    </div>
-    <div class="vat">
-    </div>
-    <div class="grand-total">
-    </div>
-    <button class="home-btn"></button>
   </div>
 </div>
+    
