@@ -45,4 +45,16 @@ class Product < ApplicationRecord
   def new?
     new
   end
+
+  def self.may_like_random(product)
+    where.not(id: product.id)
+  end
+
+  def small_name
+    if category.name == 'speakers'
+      name
+    else
+      "#{name.gsub(' ' + category.name.capitalize, '')}"
+    end
+  end
 end

@@ -37,6 +37,18 @@
       <%= cl_image_tag  @product.get_gallery_images('mobile').first.key, width: '100%' %>
       <%= cl_image_tag  @product.get_gallery_images('mobile').second.key, width: '100%' %>
     </div>
-    <div class="main-image-gallery" style="background-image: url('<%=  Cloudinary::Utils.cloudinary_url(@product.get_gallery_images('desktop').third.filename) %>')"></div>
+    <div class="main-image-gallery" style="background-image: url('<%= Cloudinary::Utils.cloudinary_url(@product.get_gallery_images('desktop').third.filename) %>')"></div>
   </div>
+
+  <div class="may-like">
+    <h3>YOU MAY ALSO LIKE</h3>
+    <% Product.may_like_random(@product).sample(3).each do |product| %>
+      <div class="may-like-card">
+        <%= image_tag Cloudinary::Utils.cloudinary_url(product.get_main_image('mobile').filename), width: '100%' %>
+        <p class='small-name'><%= product.small_name %></p>
+        <%= link_to  "SEE PRODUCT", product_path(product), class: 'may-like-btn' %>
+      </div>
+    <% end %>
+  </div>
+  <%= render 'shared/category_cards' %>
 </div>

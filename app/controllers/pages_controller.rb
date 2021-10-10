@@ -3,7 +3,6 @@ class PagesController < ApplicationController
   before_action :set_cart
 
   def home
-    @categories = Category.all
     @top_two = Product.top_two
   end
 end

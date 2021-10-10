@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_user!, :set_cart
+  before_action :authenticate_user!, :set_cart, :all_categories
   include Pundit
 
   # Pundit: allowlist approach.
@@ -20,6 +20,10 @@ class ApplicationController < ActionController::Base
     @cart = Cart.create
     session[:cart_id] = @cart.id
     @cart
+  end
+
+  def all_categories
+    @categories = Category.all
   end
 
   def skip_pundit?

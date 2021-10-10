@@ -4,6 +4,7 @@
   grid-gap: 1rem;
   align-items: flex-start;
   padding: 12px ;
+  margin-bottom: 1rem;
 }
 
 .piece-amount {
@@ -23,6 +24,7 @@
   display: grid;
   grid-template-columns: 2fr 3fr;
   grid-gap: 1rem;
+  margin-bottom: 3rem;
 }
 
 .photos-column {
@@ -38,13 +40,21 @@
 @media (max-width: 576px) {
   .product-features {
     grid-template-columns: 1fr;
-  } 
+    padding: 0;
+  }
+  .product-photos {
+    grid-template-columns: 1fr;
+    .main-image-gallery {
+      height: 12rem;
+    }
+  }
 }
 
 @media (min-width: 578px) {
   .features-content {
     padding-right: 3rem;
   }
+
 }
 
 @media (min-width: 720px) {
