@@ -17,6 +17,26 @@
     </div>
   </div>
   <div class="product-features">
-
+    <div class="features">
+      <h3>FEATURES</h3>
+      <%= simple_format @product.features, class: "features-content gray-text" %>
+    </div>
+    <div class="in-the-box">
+      <h3>IN THE BOX</h3>
+      <ul>
+        <% @product.pieces.each do |piece|  %>
+          <li class='piece-list'>
+            <span class="piece-amount"><%= piece.amount %>x</span> <span class="piece-name gray-text"><%= piece.name_display %></span>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="product-photos">
+    <div class="photos-column">
+      <%= cl_image_tag  @product.get_gallery_images('mobile').first.key, width: '100%' %>
+      <%= cl_image_tag  @product.get_gallery_images('mobile').second.key, width: '100%' %>
+    </div>
+    <div class="main-image-gallery" style="background-image: url('<%=  Cloudinary::Utils.cloudinary_url(@product.get_gallery_images('desktop').third.filename) %>')"></div>
   </div>
 </div>
