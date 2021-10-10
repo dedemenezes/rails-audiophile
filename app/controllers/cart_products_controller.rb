@@ -1,4 +1,3 @@
-require 'pry-byebug'
 class CartProductsController < ApplicationController
   before_action :set_cart
 
