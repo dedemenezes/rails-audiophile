@@ -1,20 +1,31 @@
 <nav class="nav-main nav-bg">
-  <div class="my-menu">
-    <p class="line"></p>
-    <p class="line"></p>
-    <p class="line"></p>
-  </div>
-  <%= link_to  root_path do %>
-    <%= image_tag "http://res.cloudinary.com/seguraocode/image/upload/v1632693702/logo.png" %>
-  <% end %>
+  <div class="all-time-visible">
+    <div class="my-menu-icon">
+      <p class="line"></p>
+      <p class="line"></p>
+      <p class="line"></p>
+    </div>
+
+    <%= link_to  root_path do %>
+      <%= image_tag "http://res.cloudinary.com/seguraocode/image/upload/v1632693702/logo.png" %>
+    <% end %>
   
-  <div class="nav-menu">
-    <a href="#" class="navbar-link mx-4">Home</a>
-    <a href="#" class="navbar-link mx-4">Headphones</a>
-    <a href="#" class="navbar-link mx-4">Speakers</a>
-    <a href="#" class="navbar-link mx-4">Earphones</a>
+    <div class="nav-menu">
+      <%= link_to  "Home", root_path, class: "navbar-link mx-4" %>
+      <%= link_to  "Headphones", category_path(Category.find_by(name: 'headphones')), class: "navbar-link mx-4" %>
+      <%= link_to  "Speakers", category_path(Category.find_by(name: 'speakers')), class: "navbar-link mx-4" %>
+      <%= link_to  "Earphones", category_path(Category.find_by(name: 'earphones')), class: "navbar-link mx-4" %>
+    </div>
+
+    <%= link_to cart_path(@cart.id) do %>
+      <%= image_tag "http://res.cloudinary.com/seguraocode/image/upload/v1632693479/icon-cart.png" %>
+    <% end %>
   </div>
-  <%= link_to cart_path(@cart.id) do %>
-    <%= image_tag "http://res.cloudinary.com/seguraocode/image/upload/v1632693479/icon-cart.png" %>
-  <% end %>
+
+  <div class="not-visible mobile-menu">
+    <%= link_to  "Home", root_path, class: "navbar-link mx-4" %>
+    <%= link_to  "Headphones", category_path(Category.find_by(name: 'headphones')), class: "navbar-link mx-4" %>
+    <%= link_to  "Speakers", category_path(Category.find_by(name: 'speakers')), class: "navbar-link mx-4" %>
+    <%= link_to  "Earphones", category_path(Category.find_by(name: 'earphones')), class: "navbar-link mx-4" %>
+  </div>
 </nav>

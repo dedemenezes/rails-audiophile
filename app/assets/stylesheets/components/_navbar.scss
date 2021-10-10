@@ -17,8 +17,14 @@
 
 .nav-main {
   padding: 36px 18px;
-  display: flex;
   border-bottom: 4px rgb(126, 126, 126);
+}
+
+.all-time-visible {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .nav-menu {
@@ -28,6 +34,20 @@
   align-items: center;
 }
 
+.visible {
+  display: grid;
+}
+
+.not-visible {
+  display: none;
+}
+
+.mobile-menu {
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+	margin-top: 36px;
+}
+
 .line {
   height: 4px;
   width: 36px;
@@ -35,9 +55,14 @@
   margin: 4px;
 }
 
-.my-menu {
+.my-menu-icon {
   display: none;
 }
+
+.menu-pb-mobile {
+  padding: 36px 18px 18px 18px;
+}
+
 
 @media (max-width: 576px) {
   .nav-main {
@@ -46,7 +71,7 @@
   .nav-menu {
     display: none;
   }
-  .my-menu {
+  .my-menu-icon {
     display: block;
   }
 }
