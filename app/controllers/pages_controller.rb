@@ -4,5 +4,6 @@ class PagesController < ApplicationController
 
   def home
     @top_two = Product.top_two
+    @top_earphone = Category.top_earphone
   end
 end
