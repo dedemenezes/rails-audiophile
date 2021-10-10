@@ -1,6 +1,6 @@
 <nav class="nav-main nav-bg">
   <div class="all-time-visible">
-    <div class="my-menu-icon">
+    <div class="my-menu-icon" id="menu-trigger">
       <p class="line"></p>
       <p class="line"></p>
       <p class="line"></p>
@@ -21,11 +21,5 @@
       <%= image_tag "http://res.cloudinary.com/seguraocode/image/upload/v1632693479/icon-cart.png" %>
     <% end %>
   </div>
-
-  <div class="not-visible mobile-menu">
-    <%= link_to  "Home", root_path, class: "navbar-link mx-4" %>
-    <%= link_to  "Headphones", category_path(Category.find_by(name: 'headphones')), class: "navbar-link mx-4" %>
-    <%= link_to  "Speakers", category_path(Category.find_by(name: 'speakers')), class: "navbar-link mx-4" %>
-    <%= link_to  "Earphones", category_path(Category.find_by(name: 'earphones')), class: "navbar-link mx-4" %>
-  </div>
+    <%= render  "shared/nav_mobile_menu" %>
 </nav>

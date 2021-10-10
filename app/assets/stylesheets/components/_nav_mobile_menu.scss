@@ -1,0 +1,13 @@
+.display-grid {
+  display: grid;
+}
+
+.not-visible {
+  display: none;
+}
+
+.mobile-menu {
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+	margin-top: 36px;
+}
