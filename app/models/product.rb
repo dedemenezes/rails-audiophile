@@ -50,6 +50,10 @@ class Product < ApplicationRecord
     where.not(id: product.id)
   end
 
+  def name_splitted
+    name.split(" ")
+  end
+
   def small_name
     if category.name == 'speakers'
       name

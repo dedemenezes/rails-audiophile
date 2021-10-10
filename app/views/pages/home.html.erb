@@ -3,10 +3,13 @@
 <div class="container">
   <%= render 'shared/category_cards' %>
   <div class="bg-orange top-item">
-    <%= image_tag Cloudinary::Utils.cloudinary_url("speaker-zx9"), width: '50%', class: '' %>
-    <p class='top-item-name'><%= @top_two[:first].name.upcase %></p>
-    <p class='top-item-description'>Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.</p>
-    <%= link_to  "SEE PRODUCT", '#', class: 'black-button' %>
+    <%= image_tag Cloudinary::Utils.cloudinary_url("speaker-zx9") %>
+    <div class="top-content">
+      <p class='top-item-name'><%= @top_two[:first].name_splitted.first.upcase %></p>
+      <p class='top-item-name second-name'><%= @top_two[:first].name_splitted.second.upcase %></p>
+      <p class='top-item-description'>Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.</p>
+      <%= link_to  "SEE PRODUCT", product_path(@top_two[:first]), class: 'black-button' %>
+    </div>
   </div>
 
   <div class="second-speaker" style="background-image: url(<%= Cloudinary::Utils.cloudinary_url(@top_two[:second].get_gallery_images('mobile').third.filename)%>)">

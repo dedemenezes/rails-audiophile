@@ -40,8 +40,8 @@
     <div class="main-image-gallery" style="background-image: url('<%= Cloudinary::Utils.cloudinary_url(@product.get_gallery_images('desktop').third.filename) %>')"></div>
   </div>
 
+  <h3 class='section-header'>YOU MAY ALSO LIKE</h3>
   <div class="may-like">
-    <h3>YOU MAY ALSO LIKE</h3>
     <% Product.may_like_random(@product).sample(3).each do |product| %>
       <div class="may-like-card">
         <%= image_tag Cloudinary::Utils.cloudinary_url(product.get_main_image('mobile').filename), width: '100%' %>
