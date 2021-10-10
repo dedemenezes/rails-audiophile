@@ -21,6 +21,11 @@
 	font-size: 1.25rem;
 }
 
-@media (min-width: 576px) {
-  
+@media (max-width: 576px) {
+  .may-like{
+    grid-template-columns: 1fr;
+  }
+  .may-like-card {
+    margin-bottom: 2.5rem;
+  }
 }
