@@ -6,7 +6,6 @@
       <% end %>
       <p class='cart-empty'>Your shopping cart is empty. </p>
     <% else %>
-    
       <h2>SUMMARY</h2>
       <% @cart.products.each do |product| %>
         <div class="checkout-card">
@@ -39,12 +38,6 @@
       <div class="grand-total summary-checkout">
         <p class='gray-text'>Grand-total:</p>
         <p class='bold-n-black'><%= @cart.total_price %></p>
-      </div>
-      <div class="shipping">
-      </div>
-      <div class="vat">
-      </div>
-      <div class="grand-total">
       </div>
       <button class="home-btn"></button>
     <% end %>
