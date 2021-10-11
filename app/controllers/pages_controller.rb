@@ -5,6 +5,7 @@ class PagesController < ApplicationController
   def home
     @banner_image_url = get_banner_image
     @top_two = Product.top_two
+    # binding.pry
     @top_earphone = Category.top_earphone
   end
 end
