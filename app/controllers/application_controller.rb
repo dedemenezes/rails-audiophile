@@ -14,6 +14,15 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def get_banner_image
+    
+    if request.user_agent.match? /\b(Android|iPhone|iPad|Windows Phone|Opera Mobi|Kindle|BackBerry|PlayBook)\b/i
+      Cloudinary::Utils.cloudinary_url('mobile-banner-image')
+    else
+      Cloudinary::Utils.cloudinary_url('destktop-banner-image')
+    end
+  end
+
   def set_cart
     @cart = Cart.find(session[:cart_id])
   rescue ActiveRecord::RecordNotFound
