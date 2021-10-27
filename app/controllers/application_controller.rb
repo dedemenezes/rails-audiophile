@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include CurrentCart
   before_action :authenticate_user!, :set_cart, :all_categories
   include Pundit
 
@@ -15,7 +16,7 @@ class ApplicationController < ActionController::Base
   private
 
   def get_banner_image
-    
+
     if request.user_agent.match? /\b(Android|iPhone|iPad|Windows Phone|Opera Mobi|Kindle|BackBerry|PlayBook)\b/i
       session[:device] = 'mobile'
       Cloudinary::Utils.cloudinary_url('mobile-banner-image')
@@ -23,14 +24,6 @@ class ApplicationController < ActionController::Base
       session[:device] = 'desktop'
       Cloudinary::Utils.cloudinary_url('destktop-banner-image')
     end
-  end
-
-  def set_cart
-    @cart = Cart.find(session[:cart_id])
-  rescue ActiveRecord::RecordNotFound
-    @cart = Cart.create
-    session[:cart_id] = @cart.id
-    @cart
   end
 
   def all_categories

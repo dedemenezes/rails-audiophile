@@ -1,6 +1,5 @@
 <div class="cards row">
   <% @categories.each do |category| %>
-    <div class="col-xs-12 col-sm-4">
       <div class="card-product">
         <%= cl_image_tag category.photo.key, width: '60%', class: 'card-image' %>
         <h3 class="card-title"><%= category.name.upcase %></h3>
@@ -9,6 +8,5 @@
           <%= image_tag "http://res.cloudinary.com/seguraocode/image/upload/v1632693653/icon-arrow-right.png" %>
         </div>
       </div>
-    </div>
   <% end %>
 </div>

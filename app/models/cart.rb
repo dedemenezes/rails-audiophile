@@ -5,7 +5,7 @@ class Cart < ApplicationRecord
   def total_price
     price_to_s(products.sum(:price))
   end
-  
+
   def price_to_s(price)
     if price.digits.size > 3
       price_str = price.to_s
@@ -19,7 +19,7 @@ class Cart < ApplicationRecord
     cart_products.where('product_id = ?', product.id).first
   end
 
-  def empty?
+  def is_empty?
     cart_products.empty?
   end
 end

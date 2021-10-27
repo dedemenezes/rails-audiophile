@@ -26,6 +26,13 @@
     border: solid 1px white;
     border-radius: 50px;
   }
+  a {
+    color: black;
+    text-decoration: none;
+    &:hover{
+      color: $my_orange;
+    }
+  }
 }
 
 .card-action {
