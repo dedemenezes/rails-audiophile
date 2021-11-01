@@ -13,22 +13,7 @@
       </div>
     </div>
   </div>
-  <div class="product-features">
-    <div class="features">
-      <h3>FEATURES</h3>
-      <%= simple_format @product.features, class: "features-content gray-text" %>
-    </div>
-    <div class="in-the-box">
-      <h3>IN THE BOX</h3>
-      <ul>
-        <% @product.pieces.each do |piece|  %>
-          <li class='piece-list'>
-            <span class="piece-amount"><%= piece.amount %>x</span> <span class="piece-name gray-text"><%= piece.name_display %></span>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
+  <%= render 'features', product: @product %>
   <div class="product-photos">
     <div class="photos-column">
       <%= cl_image_tag  @product.get_gallery_images(session[:device]).first.key, width: '100%' %>
@@ -43,7 +28,7 @@
       <div class="may-like-card">
         <%= image_tag Cloudinary::Utils.cloudinary_url(product.get_main_image(session[:device]).filename), width: '100%' %>
         <p class='small-name'><%= product.small_name %></p>
-        <%= link_to  "SEE PRODUCT", product_path(product), class: 'may-like-btn' %>
+        <%= link_to  "SEE PRODUCT", category_product_path(product.category, product), class: 'may-like-btn' %>
       </div>
     <% end %>
   </div>

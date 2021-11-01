@@ -2,7 +2,7 @@
 <div class="checkout-card">
   <%= cl_image_tag product.get_main_image(session[:device]).key, width: '25%', radius: 100 %>
   <div class="checkout-content">
-    <%= link_to product_path(product) do %>
+    <%= link_to category_product_path(product.category, product) do %>
       <%= product.name.gsub(" #{product.category.name.capitalize}", "") %>
     <% end %>
     <p class='product-price'><%= number_with_precision(cart_product.price, precision: 2) %></p>

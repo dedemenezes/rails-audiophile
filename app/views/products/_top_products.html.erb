@@ -4,14 +4,14 @@
     <p class='top-item-name'><%= @top_two[:first].name_splitted.first.upcase %></p>
     <p class='top-item-name second-name'><%= @top_two[:first].name_splitted.second.upcase %></p>
     <p class='top-item-description'>Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.</p>
-    <%= link_to  "SEE PRODUCT", product_path(@top_two[:first]), class: 'black-button' %>
+    <%= link_to  "SEE PRODUCT", category_product_path(@top_two[:first].category, @top_two[:first]), class: 'black-button' %>
   </div>
 </div>
 
 
 <div class="second-speaker" style="background-image: url(<%= Cloudinary::Utils.cloudinary_url(@top_two[:second].get_gallery_images(session[:device]).third.filename)%>)">
   <p><%= @top_two[:second].name.upcase %></p>
-  <%= link_to  "SEE PRODUCT", product_path(@top_two[:second]), class: 'black-button' %>
+  <%= link_to  "SEE PRODUCT", category_product_path(@top_two[:second].category, @top_two[:second]), class: 'black-button' %>
 </div>
 
 
@@ -19,6 +19,6 @@
   <%= image_tag Cloudinary::Utils.cloudinary_url(@top_earphone.get_gallery_images(session[:device]).first.filename), width: '100%', style: 'border-radius: 8px;' %>
   <div class="earphone-content">
     <p><%= @top_earphone.small_name.upcase %></p>
-    <%= link_to  "SEE PRODUCT", product_path(@top_earphone), class: 'outline-btn' %>
+    <%= link_to  "SEE PRODUCT", category_product_path(@top_earphone.category, @top_earphone), class: 'outline-btn' %>
   </div>
 </div>
