@@ -6,6 +6,7 @@
       <% end %>
     </section>
     <section class="footer-menu">
+      <%= link_to 'HOME', root_path %>
       <% @categories.each do |category| %>
           <%= link_to category_path(category) do %>
             <%= category.name.upcase %>
@@ -15,19 +16,34 @@
   </section>
   <section class="footer-mission">
     <p>Audiophile is an all in one stop to fulfill your audio needs. We're a small team of music lovers and sound specialists who are devoted to helping you get the most out of personal audio. Come and visit our demo facility - we’re open 7 days a week.</p>
+    <div class="links-hidden">
+      <ul class="list-inline mb-0">
+        <li class='list-inline-item footer-link'>
+          <i class="fab fa-facebook-square"></i>
+        </li>
+        <li class='list-inline-item footer-link'>
+          <i class="fab fa-twitter-square"></i>
+        </li>
+        <li class='list-inline-item footer-link'>
+          <i class="fab fa-instagram-square"></i>
+        </li>
+      </ul>
+    </div>
   </section>
-  <p class='footer-copyright'>Copyright 2021. All Rights Reserved</p>
-  <div class="footer-links">
-    <ul class="list-inline mb-0">
-      <li class='list-inline-item footer-link'>
-        <i class="fab fa-facebook-square"></i>
-      </li>
-      <li class='list-inline-item footer-link'>
-        <i class="fab fa-twitter-square"></i>
-      </li>
-      <li class='list-inline-item footer-link'>
-        <i class="fab fa-instagram-square"></i>
-      </li>
-    </ul>
-  </div>
+  <section class="footer-bottom">
+    <p class='footer-copyright'>Copyright 2021. All Rights Reserved</p>
+    <div class="footer-links">
+      <ul class="list-inline mb-0">
+        <li class='list-inline-item footer-link'>
+          <i class="fab fa-facebook-square"></i>
+        </li>
+        <li class='list-inline-item footer-link'>
+          <i class="fab fa-twitter-square"></i>
+        </li>
+        <li class='list-inline-item footer-link'>
+          <i class="fab fa-instagram-square"></i>
+        </li>
+      </ul>
+    </div>
+  </section>
 </div>
