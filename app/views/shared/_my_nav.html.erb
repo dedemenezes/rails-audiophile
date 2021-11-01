@@ -10,7 +10,7 @@
       <%= image_tag "http://res.cloudinary.com/seguraocode/image/upload/v1632693702/logo.png" %>
     <% end %>
 
-    <div class="nav-menu" id="menu-action">
+    <div class="nav-menu">
       <%= link_to  "Home", root_path, class: "navbar-link mx-4" %>
       <%= link_to  "Headphones", category_path(Category.find_by(name: 'headphones')), class: "navbar-link mx-4" %>
       <%= link_to  "Speakers", category_path(Category.find_by(name: 'speakers')), class: "navbar-link mx-4" %>
