@@ -3,6 +3,7 @@ class CategoriesController < ApplicationController
   before_action :set_products
 
   def index
+    raise
     @categories = policy_scope(Category)
     authorize @categories
   end

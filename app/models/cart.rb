@@ -3,17 +3,21 @@ class Cart < ApplicationRecord
   has_many :products, through: :cart_products
 
   def total_price
-    price_to_s(products.sum(:price))
-  end
-
-  def price_to_s(price)
-    if price.digits.size > 3
-      price_str = price.to_s
-      "$#{price_str[0...-3]}.#{price_str[-3..]},00"
-    else
-      "$#{price},00"
+    cart_products.reduce(0) do |memo, element|
+      memo + (element.quantity * element.product.price)
     end
   end
+
+  # def total_price_to_s
+  #   price = total_price
+  #   binding.pry
+  #   if price.digits.size > 3
+  #     price_str = price.to_s
+  #     "$#{price_str[0...-3]}.#{price_str[-3..]},00"
+  #   else
+  #     "$#{price},00"
+  #   end
+  # end
 
   def find_cart_product(product)
     cart_products.where('product_id = ?', product.id).first

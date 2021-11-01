@@ -3,7 +3,7 @@
     <% @category.products.each do |product| %>
         <li>
           <div class="product-card">
-            <%= image_tag product.get_main_image('mobile'), class: 'product-image' %>
+            <%= image_tag product.get_main_image(session[:device]), class: 'product-image' %>
             <div class="product-content">
               <h3><%= product.name %></h3>
               <p><%= product.description %></p>

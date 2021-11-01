@@ -20,8 +20,11 @@ class CartProductsController < ApplicationController
     @cart_product = CartProduct.find(params[:id])
     authorize @cart_product
     if @cart_product.remove_product
-      flash[:notice] = "Product removed from cart"
-      @cart.is_empty? ? redirect_to(root_path) : redirect_to(cart_path(@cart))
+      if @cart.is_empty?
+        redirect_to root_path, notice: "Your cart is now empty."
+      else
+        redirect_to cart_path(@cart), notice: "Product removed from cart"
+      end
     else
       flash[:alert] = "Product NOT removed from cart"
       redirect_to cart_path(@cart_product.cart)

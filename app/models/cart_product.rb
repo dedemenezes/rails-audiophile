@@ -4,7 +4,9 @@ class CartProduct < ApplicationRecord
 
   validates :quantity, numericality: { greater_than: 0 }
 
-
+  def price
+    quantity * product.price
+  end
 
   def self.add_product(cart, product)
     cart_product = CartProduct.find_by(cart_id: cart, product_id: product)

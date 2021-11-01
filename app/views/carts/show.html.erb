@@ -13,7 +13,7 @@
         <% @cart.cart_products.each do |cart_product| %>
           <% product = cart_product.product %>
           <div class="checkout-card">
-            <%= cl_image_tag product.get_main_image('mobile').key, width: '25%', radius: 100 %>
+            <%= cl_image_tag product.get_main_image(session[:device]).key, width: '25%', radius: 100 %>
             <div class="checkout-content">
               <p><%= product.name.gsub(" #{product.category.name.capitalize}", "") %></p>
               <p class='product-price'><%= product.price_to_s %></p>

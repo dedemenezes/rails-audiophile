@@ -1,11 +1,11 @@
 <% product = cart_product.product %>
 <div class="checkout-card">
-  <%= cl_image_tag product.get_main_image('mobile').key, width: '25%', radius: 100 %>
+  <%= cl_image_tag product.get_main_image(session[:device]).key, width: '25%', radius: 100 %>
   <div class="checkout-content">
     <%= link_to product_path(product) do %>
       <%= product.name.gsub(" #{product.category.name.capitalize}", "") %>
     <% end %>
-    <p class='product-price'><%= product.price_to_s %></p>
+    <p class='product-price'><%= number_with_precision(cart_product.price, precision: 2) %></p>
   </div>
   <div class="card-action">
     <p class='gray-text'>x<%= cart_product.quantity %></p>

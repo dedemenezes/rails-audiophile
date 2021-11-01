@@ -3,10 +3,13 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # get '/category/:id', to: 'categories#show', as: :category
-  
-  resources :categories, only: %i[index show]
+
+  resources :categories, only: %i[index show] do
+    member do
+      resources :products, only: :show
+    end
+  end
   resources :cart_products, only: %i[create destroy]
   # delete '/cart_products/:id', to: 'cart_products#destroy', as: 'delete_cart_product'
-  resources :products, only: :show
   resources :carts, only: :show
 end

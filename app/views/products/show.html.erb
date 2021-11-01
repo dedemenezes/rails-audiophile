@@ -1,6 +1,6 @@
 <div class="container">
   <div class="product-card">
-    <%= cl_image_tag @product.get_main_image('mobile').key, class: 'product-image' %>
+    <%= cl_image_tag @product.get_main_image(session[:device]).key, class: 'product-image' %>
     <div class="product-description">
       <% if @product.new? %>
         <h4 class='product-new'>NEW PRODUCT</h4>
@@ -31,8 +31,8 @@
   </div>
   <div class="product-photos">
     <div class="photos-column">
-      <%= cl_image_tag  @product.get_gallery_images('mobile').first.key, width: '100%' %>
-      <%= cl_image_tag  @product.get_gallery_images('mobile').second.key, width: '100%' %>
+      <%= cl_image_tag  @product.get_gallery_images(session[:device]).first.key, width: '100%' %>
+      <%= cl_image_tag  @product.get_gallery_images(session[:device]).second.key, width: '100%' %>
     </div>
     <div class="main-image-gallery" style="background-image: url('<%= Cloudinary::Utils.cloudinary_url(@product.get_gallery_images('desktop').third.filename) %>')"></div>
   </div>
@@ -41,7 +41,7 @@
   <div class="may-like">
     <% Product.may_like_random(@product).sample(3).each do |product| %>
       <div class="may-like-card">
-        <%= image_tag Cloudinary::Utils.cloudinary_url(product.get_main_image('mobile').filename), width: '100%' %>
+        <%= image_tag Cloudinary::Utils.cloudinary_url(product.get_main_image(session[:device]).filename), width: '100%' %>
         <p class='small-name'><%= product.small_name %></p>
         <%= link_to  "SEE PRODUCT", product_path(product), class: 'may-like-btn' %>
       </div>
