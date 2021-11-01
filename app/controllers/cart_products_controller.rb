@@ -1,5 +1,4 @@
 class CartProductsController < ApplicationController
-
   skip_before_action :authenticate_user!
   before_action :set_cart, only: %i[create destroy]
 
