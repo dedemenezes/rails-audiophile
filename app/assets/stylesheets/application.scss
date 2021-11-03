@@ -16,3 +16,13 @@ ul {
   list-style: none;
   padding-left: 0;
 }
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  color: white;
+  text-decoration: none;
+}

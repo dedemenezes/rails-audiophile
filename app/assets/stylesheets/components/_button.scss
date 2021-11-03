@@ -1,13 +1,13 @@
 .home-btn {
-  background-color: #DC7D4E;
+  background-color: #dc7d4ee3;
   padding: 12px 24px;
   margin-bottom: 1rem;
   border-radius: 4px;
+  transition: .3s ease;
 }
 
-a {
-  text-decoration: none;
-  color: white;
+.home-btn:hover {
+  background-color: #DC7D4E;
 }
 
 .black-button {

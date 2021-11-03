@@ -3,6 +3,6 @@
     <p class='third-header'>NEW PRODUCT</p>
     <h1 class="main-header"><%= @banner_product.name.upcase %></h1>
     <p class='sub-header'><%= @banner_product.description %></p>
-    <%= link_to  "See product", category_product_path(@banner_product.category, @banner_product), class: 'home-btn' %>
+    <%= link_to  "See product", category_product_path(@banner_product.category, @banner_product), id: 'bg-black-click', class: 'home-btn' %>
   </div>
 </div>
