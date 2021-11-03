@@ -1,0 +1,9 @@
+<% if session[:device] == "desktop" %>
+  <div class="mission-container d-flex justify-content-between align-items-center">
+    <%= render 'shared/shop_mission_text' %>
+    <%= image_tag "http://res.cloudinary.com/seguraocode/image/upload/v1635970242/#{session[:device]}-best-gear.jpg", width: '60%', alt: "Model using", class: 'mb-3' %>
+  </div>
+<% else %>
+  <%= image_tag "http://res.cloudinary.com/seguraocode/image/upload/v1635970242/#{session[:device]}-best-gear.jpg", width: '100%', alt: "Model using", class: 'mb-3'  %>
+  <%= render 'shared/shop_mission_text' %>
+<% end %>
