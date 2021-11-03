@@ -13,9 +13,13 @@
   </head>
 
   <body>
-    <%= render 'shared/my_nav' %>
-    <%= render 'shared/flashes' %>
-    <%= yield %>
-    <%= render 'shared/footer' %>
+    <div class="d-flex flex-column min-vh-100">
+      <%= render 'shared/my_nav' %>
+      <%= render 'shared/flashes' %>
+      <div class="flex-grow-1">
+        <%= yield %>
+      </div>
+      <%= render 'shared/footer' %>
+    </div>
   </body>
 </html>
