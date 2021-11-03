@@ -1,0 +1,20 @@
+.mission-container {
+  margin-bottom: 4rem;
+  text-align: center;
+  h3 {
+    padding: 0 2rem;
+  }
+  span {
+    color: $my-orange;
+  }
+  img {
+    border-radius: 8px;
+  }
+  p {
+    color: rgb(146, 146, 146)
+  }
+}
+
+.mission-container > *:not(:last-child) {
+  margin-bottom: 1rem;
+}
