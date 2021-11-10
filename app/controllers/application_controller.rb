@@ -19,8 +19,7 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def get_banner_image
-
+  def banner_image
     if request.user_agent.match? /\b(Android|iPhone|iPad|Windows Phone|Opera Mobi|Kindle|BackBerry|PlayBook)\b/i
       session[:device] = 'mobile'
       Cloudinary::Utils.cloudinary_url('mobile-banner-image')
