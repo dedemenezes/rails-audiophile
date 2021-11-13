@@ -1,30 +1,10 @@
 <div class="container">
   <ul>
-    <% @category.products.each_with_index do |product, index| %>
-      <% if index.even? %>
-        <li>
-          <div class="product-card">
-            <%= image_tag product.get_main_image(session[:device]), class: 'product-image' %>
-            <div class="product-content">
-              <h3><%= product.name %></h3>
-              <p><%= product.description %></p>
-              <%= link_to  "SEE PRODUCT", category_product_path(@category, product), id: 'bg-black-click', class: 'home-btn' %>
-            </div>
-          </div>
-        </li>
-      <% else %>
-        <li>
-          <div class="product-card">
-            <div class="product-content">
-              <h3><%= product.name %></h3>
-              <p><%= product.description %></p>
-              <%= link_to  "SEE PRODUCT", category_product_path(@category, product), id: 'bg-black-click', class: 'home-btn' %>
-            </div>
-            <%= image_tag product.get_main_image(session[:device]), class: 'product-image' %>
-          </div>
-        </li>
-      <% end %>
-
+  <p><%= session[:device] %></p>
+    <% if session[:device] == 'desktop' %>
+      <%= render 'show_desktop' %>
+    <% else %>
+      <%= render 'show_mobile' %>
     <% end %>
   </ul>
 </div>

@@ -1,0 +1,17 @@
+<% @category.products.each_with_index do |product, index| %>
+  <li>
+    <div class="product-card">
+      <% if index.even? %>
+        <%= image_tag product.get_main_image(session[:device]), class: 'product-image' %>
+      <% end %>
+      <div class="product-content">
+        <h3><%= product.name %></h3>
+        <p><%= product.description %></p>
+        <%= link_to  "SEE PRODUCT", category_product_path(@category, product), id: 'bg-black-click', class: 'home-btn' %>
+      </div>
+      <% if index.odd? %>
+        <%= image_tag product.get_main_image(session[:device]), class: 'product-image' %>
+      <% end %>
+    </div>
+  </li>
+<% end %>
