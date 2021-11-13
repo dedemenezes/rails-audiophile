@@ -52,6 +52,12 @@
   margin-bottom: 1rem;
 }
 
+#category-product:nth-child(2n) {
+  .product-card img {
+    order: 1;
+  }
+}
+
 .container > ul >li {
   margin-bottom: 4rem;
 }
