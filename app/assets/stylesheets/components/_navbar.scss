@@ -49,6 +49,11 @@
   padding: 36px 18px 18px 18px;
 }
 
+@media (min-width: 1200px) {
+  .all-time-visible {
+    padding: 0 10.25rem;
+  }
+}
 
 @media (max-width: 576px) {
   .nav-main {
