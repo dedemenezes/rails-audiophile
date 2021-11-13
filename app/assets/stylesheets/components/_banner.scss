@@ -1,47 +1,55 @@
 .main-banner {
-  // background-image: url(asset_path('image-header.jpg')), linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));
-  background-size: cover;
-  height: 70vh;
-  background-position-y: -8rem;
-  margin-bottom: 3rem;
-}
-
-.banner-content {
-  padding: 96px 24px 0 24px;
+	background-size: cover;
+	background-position-y: -8rem;
+	height: 70vh;
+	padding: 1rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  margin-bottom: 4rem;
   text-align: center;
 }
 
 .third-header {
-  color: #d6d6d6a6;
-  letter-spacing: 7px;
-  text-shadow: 1px 1px 6px rgba(0, 0, 0, .8);
+  opacity: .7;
 }
 
-.main-header {
-  color: white;
-  font-weight: 600;
-  text-shadow: 2px 2px 4px #00000096;
-  margin-bottom: 1.5rem;
+
+.banner-content {
+	color: white;
 }
 
 .sub-header {
-  margin-bottom: 2.5rem;
-  color: rgba(194, 194, 194, .85);
+  opacity: .7;
 }
 
-@media (min-width: 768px) {
+
+@media (min-width: 700px) {
   .main-banner {
-    background-position-y: center;
-    background-size: cover;
-    background-position-y: -6rem;
-    height: 80vh;
-  }
-  .banner-content {
-    text-align: start;
-    padding-right: 65rem;
-    padding-left: 9rem;
+    height: 45vh;
+    background-size: 48rem;
+	  background-position-y: -6.7rem;
+    background-position-x: 8rem;
+    text-align: center;
+
   }
   .main-header {
-    letter-spacing: 0.25rem;
+    font-size: 4rem;
+  }
+  .banner-content {
+    padding: 0 17rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .main-banner {
+    height: 80vh;
+    background-size: cover;
+    background-position-y: -10rem;
+    text-align: left;
+    padding: 0 0;
+  }
+  .banner-content {
+    padding: 0 45% 0 0;
   }
 }

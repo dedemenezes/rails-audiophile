@@ -1,8 +1,8 @@
 <div class="main-banner" style="background-image: url('<%= @banner_image_url %>'), linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4))">
-  <div class="banner-content">
+  <div class="banner-content container">
     <p class='third-header'>NEW PRODUCT</p>
     <h1 class="main-header"><%= @banner_product.name.upcase %></h1>
-    <p class='sub-header'><%= @banner_product.description %></p>
+    <p class='sub-header'>Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.</p>
     <%= link_to  "See product", category_product_path(@banner_product.category, @banner_product), id: 'bg-black-click', class: 'home-btn' %>
   </div>
 </div>
