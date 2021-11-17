@@ -8,6 +8,5 @@ class PagesController < ApplicationController
     @top_two = Product.top_two
     # binding.pry
     @top_earphone = Category.top_earphone
-    @category ||= Category.new
   end
 end
