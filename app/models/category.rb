@@ -2,7 +2,7 @@ class Category < ApplicationRecord
   has_many :products, dependent: :destroy
   has_one_attached :photo
 
-  validates :name, presence: { message: "Name is necessary!" } # , uniqueness: { case_sensitve: false }
+  validates :name, presence: { message: "is necessary!" } # , uniqueness: { case_sensitve: false }
 
   def self.top_earphone
     find_by(name: 'earphones').products.order(:price).reverse.first
