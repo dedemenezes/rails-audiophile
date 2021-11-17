@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # get '/category/:id', to: 'categories#show', as: :category
 
-  resources :categories, only: %i[index show] do
+  resources :categories, only: %i[index show create] do
     resources :products, only: :show
   end
   resources :cart_products, only: %i[create destroy]
