@@ -15,10 +15,16 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(category_params)
     authorize @category
-    if @category.save
-      redirect_to category_path(@category)
-    else
-      render "pages/home"
+    respond_to do |format|
+      if @category.save
+        format.html do
+          redirect_to category_path(@category)
+        end
+      else
+        format.js do
+          render 'pages/home'
+        end
+      end
     end
   end
 

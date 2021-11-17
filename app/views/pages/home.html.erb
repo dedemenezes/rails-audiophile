@@ -4,8 +4,7 @@
   <%= render 'shared/category_cards' %>
   <%= render 'products/top_products' %>
   <%= render 'shared/shop_mission' %>
-  <%= simple_form_for @category do |f| %>
-    <%= f.input :name %>
-    <%= f.submit %>
-  <% end %>
+  <div id="formId">
+    <%= render 'categories/form', category: @category %>
+  </div>
 </div>
