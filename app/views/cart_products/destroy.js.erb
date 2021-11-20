@@ -1,0 +1,7 @@
+document.getElementById('number-holder').innerHTML = "<%= j render 'cart_items', cart: @cart %>"
+<% if @cart_product.quantity.positive? %>
+  document.getElementById("<%= @cart_product.id %>").innerHTML = "<%= @cart_product.quantity %>"
+<% else %>
+  document.getElementById("card-<%= @cart_product.id %>").style.display = 'none'
+<% end %>
+document.querySelector('body').insertAdjacentHTML('beforeend', "<%= j render 'shared/flashes' %>")

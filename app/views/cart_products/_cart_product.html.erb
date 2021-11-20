@@ -1,5 +1,5 @@
 <% product = cart_product.product %>
-<div class="checkout-card">
+<div class="checkout-card" id="card-<%= cart_product.id %>">
   <%= cl_image_tag product.get_main_image(session[:device]).key, width: '25%', radius: 100 %>
   <div class="checkout-content">
     <%= link_to category_product_path(product.category, product) do %>
@@ -8,8 +8,8 @@
     <p class='product-price'><%= number_with_precision(cart_product.price, precision: 2) %></p>
   </div>
   <div class="card-action">
-    <p class='gray-text'>x<%= cart_product.quantity %></p>
-    <%= link_to cart_product_path(cart_product), method: :delete, data: { confirm: "Are you sure?" } do %>
+    <p class='gray-text'>x<span id="<%= cart_product.id %>"><%= cart_product.quantity %></span></p>
+    <%= link_to cart_product_path(cart_product), method: :delete, data: { confirm: "Are you sure?" }, remote: true do %>
       <i class="fas fa-trash-alt"></i>
     <% end %>
   </div>
