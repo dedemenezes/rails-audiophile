@@ -1,11 +1,14 @@
 class Cart < ApplicationRecord
+  include  ActionView::Helpers::NumberHelper
+
   has_many :cart_products, dependent: :destroy
   has_many :products, through: :cart_products
 
   def total_price
-    cart_products.reduce(0) do |memo, element|
+    total_price = cart_products.reduce(0) do |memo, element|
       memo + (element.quantity * element.product.price)
     end
+    number_to_currency(total_price)
   end
 
   def product_count

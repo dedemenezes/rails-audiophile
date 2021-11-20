@@ -113,3 +113,11 @@
   grid-template-rows: 1fr 1fr;
   grid-gap: 1rem;
 }
+
+.border-rounded {
+  border-radius: 8px;
+}
+
+.summary {
+  height: fit-content;
+}

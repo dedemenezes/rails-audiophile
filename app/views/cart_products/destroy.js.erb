@@ -4,4 +4,5 @@ document.getElementById('number-holder').innerHTML = "<%= j render 'cart_items',
 <% else %>
   document.getElementById("card-<%= @cart_product.id %>").style.display = 'none'
 <% end %>
+document.getElementById("totalPrice").innerText = "<%= @cart.total_price %>"
 document.querySelector('body').insertAdjacentHTML('beforeend', "<%= j render 'shared/flashes' %>")
