@@ -81,3 +81,35 @@
   letter-spacing: 0.06rem;
   font-size: 0.8rem;
 }
+
+.pay-option-bordered {
+  p {
+    margin-bottom: 0;
+  }
+  border: 1px solid green;
+  border-radius: 4px;
+  padding: 12px 24px;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 2fr;
+}
+
+.choice-circle {
+  background-color: orange;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+}
+
+.margin-outside {
+  border-radius: 50%;
+  height: 1.1rem;
+  width: 1.1rem;
+  border: 2px solid rgba(0,0,0,0.3);
+}
+
+.pay-option-cards {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 1rem;
+}

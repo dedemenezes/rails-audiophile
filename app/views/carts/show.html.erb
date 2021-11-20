@@ -1,71 +1,15 @@
+<%= form_with url: "/", method: :get do |form| %>
 <div class="">
   <div class="container">
     <div class="checkout-content m-5">
       <div class="checkout-form bg-white px-5 py-4 rounded-lg">
         <h2 class="mb-3">CHECKOUT</h2>
-        <%= form_with url: "/home", method: :get do |form| %>
-          <p class="sm-header-red">BILLING DETAILS</p>
-          <div class="form-row">
-            <div class="col">
-              <div class="form-group">
-                <%= form.label :first_name, "Name", class: "form-header-bold" %>
-                <%= form.text_field :first_name, class: 'form-control' %>
-              </div>
-            </div>
-            <div class="col">
-              <div class="form-group">
-                <%= form.label :email, "Email address", class: "form-header-bold" %>
-                <%= form.text_field :email, class: 'form-control' %>
-              </div>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="col col-sm-6">
-              <div class="form-group">
-                <%= form.label :phone_number, "Phone number", class: "form-header-bold" %>
-                <%= form.text_field :phone_number, class: 'form-control' %>
-              </div>
-            </div>
-          </div>
-          <p class="sm-header-red">Shipping info</p>
-          <div class="form-row">
-            <div class="col">
-              <div class="form-group">
-                <%= form.label :address, "Address", class: "form-header-bold" %>
-                <%= form.text_field :address, class: 'form-control' %>
-              </div>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="col">
-              <div class="form-group">
-                <%= form.label :zip_code, "ZIP code", class: "form-header-bold" %>
-                <%= form.text_field :zip_code, class: 'form-control' %>
-              </div>
-            </div>
-            <div class="col">
-              <div class="form-group">
-                <%= form.label :city, "City", class: "form-header-bold" %>
-                <%= form.text_field :city, class: 'form-control' %>
-              </div>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="col col-sm-6">
-              <div class="form-group">
-                <%= form.label :country, "Country", class: "form-header-bold" %>
-                <%= form.text_field :country, class: 'form-control' %>
-              </div>
-            </div>
-          </div>
-
-
-
-
-
-
-          <%= form.submit "Search" %>
-        <% end %>
+        <p class="sm-header-red">BILLING DETAILS</p>
+        <%= render 'checkout/billing_details', form: form %>
+        <p class="sm-header-red">Shipping info</p>
+        <%= render 'checkout/shipping_info', form: form %>
+        <p class="sm-header-red">Payment details</p>
+        <%= render 'checkout/payment_details', form: form %>
       </div>
       <div class="summary">
         <% if @cart.is_empty? %>
@@ -92,9 +36,11 @@
             <p class='gray-text'>Grand-total:</p>
             <p class='bold-n-black'><%= @cart.total_price %></p>
           </div>
-          <button class="home-btn"></button>
+          <%= form.submit "Search", class: 'home-btn checkout-btn' %>
         <% end %>
       </div>
     </div>
   </div>
 </div>
+
+        <% end %>
