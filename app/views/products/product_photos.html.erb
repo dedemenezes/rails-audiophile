@@ -1,0 +1,7 @@
+<div class="product-photos">
+  <div class="photos-column">
+    <%= cl_image_tag  @product.get_gallery_images(session[:device]).first.key, width: '100%' %>
+    <%= cl_image_tag  @product.get_gallery_images(session[:device]).second.key, width: '100%' %>
+  </div>
+  <div class="main-image-gallery" style="background-image: url('<%= Cloudinary::Utils.cloudinary_url(@product.get_gallery_images('desktop').third.filename) %>')"></div>
+</div>

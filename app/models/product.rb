@@ -19,8 +19,8 @@ class Product < ApplicationRecord
   def self.top_two
     # max_price = Product.maximum('price')
     # most_expensive_product = Product.find_by(price: max_price)
-    ordered = all.order('price').reverse
-    { first: ordered.first, second: ordered.second }
+    top_two = all.order('price').reverse.slice(0, 2)
+    { first: top_two.first, second: top_two.second }
   end
 
   def get_main_image(device)

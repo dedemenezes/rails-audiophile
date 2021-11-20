@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   include CurrentCart
   include Pundit
 
-  before_action :authenticate_user!, :set_cart, :all_categories
+  before_action :authenticate_user!, :set_cart
 
   # Pundit: allowlist approach.
   after_action :verify_authorized, except: :index, unless: :skip_pundit?

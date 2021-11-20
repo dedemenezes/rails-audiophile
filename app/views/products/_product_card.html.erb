@@ -1,0 +1,14 @@
+<div class="product-card">
+  <%= cl_image_tag @product.get_main_image(session[:device]).key, class: 'product-image' %>
+  <div class="product-description">
+    <% if @product.new? %>
+      <h4 class='product-new'>NEW PRODUCT</h4>
+    <% end %>
+    <h3><%= @product.name %></h3>
+    <p><%= @product.description %></p>
+    <p class='price'><%= @product.price_to_s %></p>
+    <div class="product-action">
+      <%= link_to 'Add to cart', cart_products_path(product_id: @product.id), method: 'POST', remote: true, id: 'bg-black-click', class: 'home-btn' %>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
-  before_action :set_cart
+  before_action :set_cart, :all_categories
 
   def home
     p request.cookies
