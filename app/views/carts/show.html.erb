@@ -1,50 +1,100 @@
-<div class="container">
-  <div class="summary">
-    <% if @cart.is_empty? %>
-      <%= link_to '#', class: 'close-icon' do %>
-        <%= icon('fas', 'times') %>
-      <% end %>
-      <p class='cart-empty'>Your shopping cart is empty. </p>
-    <% else %>
-      <h2>SUMMARY</h2>
-      <%= render @cart.cart_products %>
-      <%#= Al this extracted into a partial named _cart_product NO LOOP INSIDE THE PARTIAL!!  %>
-      <% if false %>
-        <% @cart.cart_products.each do |cart_product| %>
-          <% product = cart_product.product %>
-          <div class="checkout-card">
-            <%= cl_image_tag product.get_main_image(session[:device]).key, width: '25%', radius: 100 %>
-            <div class="checkout-content">
-              <p><%= product.name.gsub(" #{product.category.name.capitalize}", "") %></p>
-              <p class='product-price'><%= product.price_to_s %></p>
+<div class="">
+  <div class="container">
+    <div class="checkout-content m-5">
+      <div class="checkout-form bg-white px-5 py-4 rounded-lg">
+        <h2 class="mb-3">CHECKOUT</h2>
+        <%= form_with url: "/home", method: :get do |form| %>
+          <p class="sm-header-red">BILLING DETAILS</p>
+          <div class="form-row">
+            <div class="col">
+              <div class="form-group">
+                <%= form.label :first_name, "Name", class: "form-header-bold" %>
+                <%= form.text_field :first_name, class: 'form-control' %>
+              </div>
             </div>
-            <div class="card-action">
-              <p class='gray-text'>x<%= cart_product.quantity %></p>
-              <%= link_to cart_product_path(cart_product), method: :delete, data: { confirm: "Are you sure?" } do %>
-                <i class="fas fa-trash-alt"></i>
-              <% end %>
+            <div class="col">
+              <div class="form-group">
+                <%= form.label :email, "Email address", class: "form-header-bold" %>
+                <%= form.text_field :email, class: 'form-control' %>
+              </div>
             </div>
           </div>
+          <div class="form-row">
+            <div class="col col-sm-6">
+              <div class="form-group">
+                <%= form.label :phone_number, "Phone number", class: "form-header-bold" %>
+                <%= form.text_field :phone_number, class: 'form-control' %>
+              </div>
+            </div>
+          </div>
+          <p class="sm-header-red">Shipping info</p>
+          <div class="form-row">
+            <div class="col">
+              <div class="form-group">
+                <%= form.label :address, "Address", class: "form-header-bold" %>
+                <%= form.text_field :address, class: 'form-control' %>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col">
+              <div class="form-group">
+                <%= form.label :zip_code, "ZIP code", class: "form-header-bold" %>
+                <%= form.text_field :zip_code, class: 'form-control' %>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <%= form.label :city, "City", class: "form-header-bold" %>
+                <%= form.text_field :city, class: 'form-control' %>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col col-sm-6">
+              <div class="form-group">
+                <%= form.label :country, "Country", class: "form-header-bold" %>
+                <%= form.text_field :country, class: 'form-control' %>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+
+          <%= form.submit "Search" %>
         <% end %>
-      <% end %>
-      <%# until here %>
-      <div class="total summary-checkout">
-        <p class='gray-text'>TOTAL:</p>
-        <p class='bold-n-black'><%= @cart.total_price %></p>
       </div>
-      <div class="shipping summary-checkout">
-        <p class='gray-text'>Shipping:</p>
-        <p class='bold-n-black'><%= @cart.total_price %></p>
+      <div class="summary">
+        <% if @cart.is_empty? %>
+          <%= link_to '#', class: 'close-icon' do %>
+            <%= icon('fas', 'times') %>
+          <% end %>
+          <p class='cart-empty'>Your shopping cart is empty. </p>
+        <% else %>
+          <h2>SUMMARY</h2>
+          <%= render @cart.cart_products %>
+          <div class="total summary-checkout">
+            <p class='gray-text'>TOTAL:</p>
+            <p class='bold-n-black'><%= @cart.total_price %></p>
+          </div>
+          <div class="shipping summary-checkout">
+            <p class='gray-text'>Shipping:</p>
+            <p class='bold-n-black'><%= @cart.total_price %></p>
+          </div>
+          <div class="vat summary-checkout">
+            <p class='gray-text'>Vat:</p>
+            <p class='bold-n-black'><%= @cart.total_price %></p>
+          </div>
+          <div class="grand-total summary-checkout">
+            <p class='gray-text'>Grand-total:</p>
+            <p class='bold-n-black'><%= @cart.total_price %></p>
+          </div>
+          <button class="home-btn"></button>
+        <% end %>
       </div>
-      <div class="vat summary-checkout">
-        <p class='gray-text'>Vat:</p>
-        <p class='bold-n-black'><%= @cart.total_price %></p>
-      </div>
-      <div class="grand-total summary-checkout">
-        <p class='gray-text'>Grand-total:</p>
-        <p class='bold-n-black'><%= @cart.total_price %></p>
-      </div>
-      <button class="home-btn"></button>
-    <% end %>
+    </div>
   </div>
 </div>
