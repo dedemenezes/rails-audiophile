@@ -65,8 +65,10 @@
 
 .checkout-content {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr;
   grid-gap: 3rem;
+  justify-content: center;
+  margin: auto!important;
 }
 
 .sm-header-red {
@@ -120,4 +122,15 @@
 
 .summary {
   height: fit-content;
+}
+
+@media (max-width: 992px) {
+  .cards, .product-card {
+    grid-template-columns: 1fr;
+  }
+}
+@media (min-width: 1200px) {
+  .checkout-content {
+    grid-template-columns: 2fr 1fr;
+  }
 }

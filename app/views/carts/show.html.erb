@@ -1,50 +1,49 @@
 <%= form_with url: "/", method: :get do |form| %>
-<div class="">
-  <div class="container">
-    <div class="checkout-content m-5">
-      <div class="checkout-form bg-white px-5 py-4 border-rounded">
-        <h2 class="mb-3">CHECKOUT</h2>
-        <p class="sm-header-red">BILLING DETAILS</p>
-        <%= render 'checkout/billing_details', form: form %>
-        <p class="sm-header-red">Shipping info</p>
-        <%= render 'checkout/shipping_info', form: form %>
-        <p class="sm-header-red">Payment details</p>
-        <%= render 'checkout/payment_details', form: form %>
-      </div>
-      <div class="summary bg-white px-4 py-4 border-rounded">
-        <% if @cart.is_empty? %>
-          <%= link_to '#', class: 'close-icon' do %>
-            <%= icon('fas', 'times') %>
-          <% end %>
-          <p class='cart-empty'>Your shopping cart is empty. </p>
-        <% else %>
-          <div class="summary-box">
-            <h2 class="mb-3">SUMMARY</h2>
-            <div class="product-cards">
-              <%= render @cart.cart_products %>
-            </div>
-            <div class="total summary-checkout">
-              <p class='gray-text'>TOTAL:</p>
-              <p class='bold-n-black' id='totalPrice'><%= @cart.total_price %></p>
-            </div>
-            <div class="shipping summary-checkout">
-              <p class='gray-text'>Shipping:</p>
-              <p class='bold-n-black'></p>
-            </div>
-            <div class="vat summary-checkout">
-              <p class='gray-text'>Vat:</p>
-              <p class='bold-n-black'></p>
-            </div>
-            <div class="grand-total summary-checkout">
-              <p class='gray-text'>Grand-total:</p>
-              <p class='bold-n-black'></p>
-            </div>
-            <%= form.submit "Search", class: 'home-btn checkout-btn' %>
-          </div>
+  <div class="">
+    <div class="container">
+      <% if @cart.is_empty? %>
+        <%= link_to '#', class: 'close-icon' do %>
+          <%= icon('fas', 'times') %>
         <% end %>
-      </div>
+        <p class='cart-empty'>Your shopping cart is empty. </p>
+      <% else %>
+        <div class="checkout-content m-5">
+          <div class="checkout-form bg-white px-5 py-4 border-rounded">
+            <h2 class="mb-3">CHECKOUT</h2>
+            <p class="sm-header-red">BILLING DETAILS</p>
+            <%= render 'checkout/billing_details', form: form %>
+            <p class="sm-header-red">Shipping info</p>
+            <%= render 'checkout/shipping_info', form: form %>
+            <p class="sm-header-red">Payment details</p>
+            <%= render 'checkout/payment_details', form: form %>
+          </div>
+          <div class="summary bg-white px-4 py-4 border-rounded">
+            <div class="summary-box">
+              <h2 class="mb-3">SUMMARY</h2>
+              <div class="product-cards">
+                <%= render @cart.cart_products %>
+              </div>
+              <div class="total summary-checkout">
+                <p class='gray-text'>TOTAL:</p>
+                <p class='bold-n-black' id='totalPrice'><%= @cart.total_price %></p>
+              </div>
+              <div class="shipping summary-checkout">
+                <p class='gray-text'>Shipping:</p>
+                <p class='bold-n-black'></p>
+              </div>
+              <div class="vat summary-checkout">
+                <p class='gray-text'>Vat:</p>
+                <p class='bold-n-black'></p>
+              </div>
+              <div class="grand-total summary-checkout">
+                <p class='gray-text'>Grand-total:</p>
+                <p class='bold-n-black'></p>
+              </div>
+              <%= form.submit "Search", class: 'home-btn checkout-btn' %>
+            </div>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
-</div>
-
-        <% end %>
+<% end %>
