@@ -17,9 +17,14 @@
       <%= link_to  "Earphones", category_path(Category.find_by(name: 'earphones')), class: "navbar-link mx-4" %>
     </div>
 
-    <%= link_to cart_path(@cart.id) do %>
-      <%= image_tag "http://res.cloudinary.com/seguraocode/image/upload/v1632693479/icon-cart.png" %>
-    <% end %>
+    <div id="cart">
+      <div id="number-holder">
+        <%= render 'cart_products/items', cart: @cart%>
+      </div>
+      <%= link_to cart_path(@cart.id) do %>
+        <%= image_tag "http://res.cloudinary.com/seguraocode/image/upload/v1632693479/icon-cart.png" %>
+      <% end %>
+    </div>
   </div>
     <%= render  "shared/nav_mobile_menu" %>
 </nav>

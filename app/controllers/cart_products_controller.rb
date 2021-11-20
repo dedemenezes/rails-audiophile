@@ -6,12 +6,15 @@ class CartProductsController < ApplicationController
     product = Product.find(params[:product_id].to_i)
     @cart_product = CartProduct.add_product(@cart, product)
     authorize @cart_product
-    if @cart_product.save
-      redirect_to cart_path(@cart)
-      flash[:notice] = "Product added to cart"
-    else
-      render :back
-      flash[:alert] = "Product NOTTTT added to cart"
+    respond_to do |format|
+      if @cart_product.save
+        # format.html { redirect_to request.referer }
+        format.js
+        flash[:notice] = "Product added to cart"
+      else
+        render :back
+        flash[:alert] = "Product NOTTTT added to cart"
+      end
     end
   end
 

@@ -10,7 +10,7 @@ class Product < ApplicationRecord
   # validates :name, uniqueness: { case_sensitive: false }
   validates :price, numericality: { greater_than: 10 }
 
-  before_destroy :ensure_not_referenced_by_any_cart_product
+  # before_destroy :ensure_not_referenced_by_any_cart_product
 
   def self.most_expensive
     order(:price).reverse.first

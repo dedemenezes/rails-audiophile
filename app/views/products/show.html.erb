@@ -9,7 +9,7 @@
       <p><%= @product.description %></p>
       <p class='price'><%= @product.price_to_s %></p>
       <div class="product-action">
-        <%= link_to 'Add to cart', cart_products_path(product_id: @product.id), method: 'POST', id: 'bg-black-click', class: 'home-btn' %>
+        <%= link_to 'Add to cart', cart_products_path(product_id: @product.id), method: 'POST', remote: true, id: 'bg-black-click', class: 'home-btn' %>
       </div>
     </div>
   </div>
