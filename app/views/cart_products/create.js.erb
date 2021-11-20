@@ -1,1 +1,3 @@
 document.getElementById('number-holder').innerHTML = "<%= j render 'cart_items', cart: @cart %>"
+
+document.querySelector('body').insertAdjacentHTML('beforeend', "<%= j render 'shared/flashes' %>")

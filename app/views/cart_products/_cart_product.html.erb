@@ -12,5 +12,6 @@
     <%= link_to cart_product_path(cart_product), method: :delete, data: { confirm: "Are you sure?" }, remote: true do %>
       <i class="fas fa-trash-alt"></i>
     <% end %>
+    <%= link_to "add to cookie", store_on_cookies_cart_product_path(cart_product), :'data-id' => product.id, remote: true %>
   </div>
 </div>

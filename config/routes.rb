@@ -7,7 +7,11 @@ Rails.application.routes.draw do
   resources :categories, only: %i[index show create] do
     resources :products, only: :show
   end
-  resources :cart_products, only: %i[create destroy]
+  resources :cart_products, only: %i[create destroy] do
+    member do
+      get "store_on_cookies"
+    end
+  end
   # delete '/cart_products/:id', to: 'cart_products#destroy', as: 'delete_cart_product'
   resources :carts, only: :show
 end

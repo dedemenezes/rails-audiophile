@@ -12,4 +12,8 @@ class CartProductPolicy < ApplicationPolicy
   def destroy?
     true
   end
+
+  def store_on_cookies?
+    true
+  end
 end

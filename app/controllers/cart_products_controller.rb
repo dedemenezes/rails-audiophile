@@ -37,4 +37,18 @@ class CartProductsController < ApplicationController
       end
     end
   end
+
+  def store_on_cookies
+    @order = CartProduct.find(params[:id])
+    authorize @order
+    product_id = @order.product.id
+    binding.pry
+    if cookies[:"product_#{product_id}"].present?
+      cookies[:"product_#{product_id}_amount"] = cookies[:"product_#{product_id}_amount"].to_i + 1
+    else
+      cookies[:"product_#{product_id}"] = product_id
+      cookies[:"product_#{product_id}_amount"] = 1
+    end
+    binding.pry
+  end
 end
