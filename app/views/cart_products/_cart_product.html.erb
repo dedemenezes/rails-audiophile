@@ -1,16 +1,17 @@
 <% product = cart_product.product %>
-<div class="checkout-card">
+<div class="summary-card my-3" id="card-<%= cart_product.id %>">
   <%= cl_image_tag product.get_main_image(session[:device]).key, width: '25%', radius: 100 %>
-  <div class="checkout-content">
+  <div class="summary-content">
     <%= link_to category_product_path(product.category, product) do %>
       <%= product.name.gsub(" #{product.category.name.capitalize}", "") %>
     <% end %>
     <p class='product-price'><%= number_with_precision(cart_product.price, precision: 2) %></p>
   </div>
   <div class="card-action">
-    <p class='gray-text'>x<%= cart_product.quantity %></p>
-    <%= link_to cart_product_path(cart_product), method: :delete, data: { confirm: "Are you sure?" } do %>
+    <p class='gray-text'>x<span id="<%= cart_product.id %>"><%= cart_product.quantity %></span></p>
+    <%= link_to cart_product_path(cart_product), method: :delete, data: { confirm: "Are you sure?" }, remote: true do %>
       <i class="fas fa-trash-alt"></i>
     <% end %>
+    <%#= link_to "add to cookie", store_on_cookies_cart_product_path(cart_product), :'data-id' => product.id, remote: true %>
   </div>
 </div>

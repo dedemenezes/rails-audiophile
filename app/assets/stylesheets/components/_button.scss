@@ -7,8 +7,14 @@
   display: inline-block;
 }
 
+.home-btn-black {
+  transition: .2s;
+  background-color: black;
+  color: white;
+}
+
 .home-btn:hover {
-  background-color: #DC7D4E;
+  background-color: #dc7d4e;
 }
 
 .black-button {
@@ -35,4 +41,10 @@
 	font-weight: bold;
 	letter-spacing: 0.05rem;
 	font-size: 0.85rem;
+}
+
+.checkout-btn {
+  width: 100%;
+  color: white;
+  padding: 0.3rem;
 }
