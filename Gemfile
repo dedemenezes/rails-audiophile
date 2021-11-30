@@ -44,6 +44,7 @@ gem 'geocoder'
 gem 'money-rails'
 
 # online payment
+gem 'stripe'
 
 gem 'rubocop', require: false
 
