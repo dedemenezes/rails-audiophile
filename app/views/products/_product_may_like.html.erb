@@ -1,6 +1,6 @@
 <h3 class='section-header'>YOU MAY ALSO LIKE</h3>
 <div class="may-like">
-  <% Product.may_like_random(@product).sample(3).each do |product| %>
+  <% Product.may_like_random(product).sample(3).each do |product| %>
     <div class="may-like-card">
       <%= image_tag Cloudinary::Utils.cloudinary_url(product.get_main_image(session[:device]).filename), width: '100%' %>
       <p class='small-name'><%= product.small_name %></p>

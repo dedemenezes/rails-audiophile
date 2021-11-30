@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   include CurrentCart
   include Pundit
 
-  before_action :authenticate_user!, :set_cart
+  before_action :authenticate_user!, :nav_categories, :find_user_cart
 
   # Pundit: allowlist approach.
   after_action :verify_authorized, except: :index, unless: :skip_pundit?
@@ -33,7 +33,11 @@ class ApplicationController < ActionController::Base
   end
 
   def all_categories
-    @categories = Category.all
+    @categories = Category.includes(photo_attachment: :blob).all
+  end
+
+  def nav_categories
+    @all_categories = Category.all
   end
 
   def skip_pundit?

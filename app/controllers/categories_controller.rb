@@ -4,18 +4,18 @@ class CategoriesController < ApplicationController
   before_action :all_categories, only: %i[show]
 
   def index
-    @categories = policy_scope(Category)
+    @categories = policy_scope(Category).includes(:product)
     authorize @categories
   end
 
   def show
-    @category = Category.find(params[:id])
+    @category = Category.includes(:products).find(params[:id])
     authorize @category
   end
 
   private
 
   def set_products
-    @products = Product.where(category: @category)
+    @products = Product.includes(:category).where(category: @category)
   end
 end

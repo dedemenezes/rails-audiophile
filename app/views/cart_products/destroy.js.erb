@@ -1,8 +1,8 @@
-document.getElementById('number-holder').innerHTML = "<%= j render 'cart_items', cart: @cart %>"
+document.getElementById('number-holder').innerHTML = "<%= j render 'cart_items', cart: @user_cart %>"
 <% if @cart_product.quantity.positive? %>
   document.getElementById("<%= @cart_product.id %>").innerHTML = "<%= @cart_product.quantity %>"
 <% else %>
   document.getElementById("card-<%= @cart_product.id %>").style.display = 'none'
 <% end %>
-document.getElementById("totalPrice").innerText = "<%= number_to_currency(@cart.total_price, :unit => "R$ ", :separator => ",", :delimiter => ".") %>"
+document.getElementById("totalPrice").innerText = "<%= number_to_currency(@user_cart.total_price, :unit => "R$ ", :separator => ",", :delimiter => ".") %>"
 document.querySelector('body').insertAdjacentHTML('beforeend', "<%= j render 'shared/flashes' %>")

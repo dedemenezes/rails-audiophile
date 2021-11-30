@@ -15,7 +15,7 @@ class Product < ApplicationRecord
   def self.top_two
     # max_price = Product.maximum('price')
     # most_expensive_product = Product.find_by(price: max_price)
-    top_two = all.order('price').reverse.slice(0, 2)
+    top_two = includes(:category).all.order('price').reverse.slice(0, 2)
     { first: top_two.first, second: top_two.second }
   end
 
@@ -47,7 +47,7 @@ class Product < ApplicationRecord
   end
 
   def self.may_like_random(product)
-    where.not(id: product.id)
+    includes(:category).where.not(id: product.id)
   end
 
   def name_splitted

@@ -11,6 +11,10 @@
           </div>
         </div>
       </li>
-    <% end %>
+
+      <% if @category.products.size - 1 == index %>
   </ul>
+  <%= render 'products/product_may_like', product: product %>
+      <% end %>
+    <% end %>
 </div>

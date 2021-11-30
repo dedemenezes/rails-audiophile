@@ -12,18 +12,19 @@
 
     <div class="nav-menu">
       <%= link_to  "Home", root_path, class: "navbar-link mx-4" %>
-      <%= link_to  "Headphones", category_path(Category.find_by(name: 'headphones')), class: "navbar-link mx-4" %>
-      <%= link_to  "Speakers", category_path(Category.find_by(name: 'speakers')), class: "navbar-link mx-4" %>
-      <%= link_to  "Earphones", category_path(Category.find_by(name: 'earphones')), class: "navbar-link mx-4" %>
+      <% @all_categories.each do |category| %>
+        <%= link_to  category.name.capitalize, category_path(category), class: "navbar-link mx-4" %>
+
+      <% end %>
     </div>
 
     <div id="cart">
       <div id="number-holder">
-        <% unless @cart.products.empty? %>
-          <%= render 'cart_products/cart_items', cart: @cart%>
+        <% unless @user_cart.products.empty? %>
+          <%= render 'cart_products/cart_items', cart: @user_cart %>
         <% end %>
       </div>
-      <%= link_to cart_path(@cart.id) do %>
+      <%= link_to cart_path(@user_cart.id) do %>
         <%= image_tag "http://res.cloudinary.com/seguraocode/image/upload/v1632693479/icon-cart.png" %>
       <% end %>
     </div>
