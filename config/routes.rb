@@ -15,5 +15,5 @@ Rails.application.routes.draw do
   # delete '/cart_products/:id', to: 'cart_products#destroy', as: 'delete_cart_product'
   resources :carts, only: :show
 
-  get '/delivery_map', to: 'orders#geocode_address', as: :delivery_map
+  get '/delivery_map', to: 'pages#geocode_address', as: :delivery_map
 end

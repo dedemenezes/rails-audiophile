@@ -1,6 +1,6 @@
-import Rails from '@Rails/ujs';
+import Rails from '@rails/ujs';
 
-const checkoutAddress = () => {
+const geocodeCheckoutAddress = () => {
   const address = document.getElementById('address')
   if (address) {
     address.addEventListener('focusout', (event) => {
@@ -10,8 +10,11 @@ const checkoutAddress = () => {
       Rails.ajax({
         url: "/delivery_map",
         type: "get",
-        data: deliveryAddress,
-        success: function(data) { console.log(data) },
+        data: `address=${deliveryAddress}`,
+        success: function(data) {
+          const addressCoordinates = JSON.parse(data)
+          return addressCoordinates
+        },
         error: function(data) { console.log(data) }
       })
       // Inside controller geocode address
@@ -19,4 +22,4 @@ const checkoutAddress = () => {
   }
 }
 
-export { checkoutAddress }
+export { geocodeCheckoutAddress }

@@ -9,4 +9,20 @@ class PagesController < ApplicationController
     # binding.pry
     @top_earphone = Category.top_earphone
   end
+
+  def geocode_address
+    @results = Geocoder.search(params[:address]).map do |result|
+      { lat: result.latitude,
+        lon: result.longitude
+      }
+    end
+    binding.pry
+    respond_to do |format|
+      if @results.present?
+        format.js { render json: @results }
+      else
+        format.js { render json: "no address rsrs zo/" }
+      end
+    end
+  end
 end
