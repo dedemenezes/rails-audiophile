@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
-  before_action :all_categories
+  before_action :all_categories, :find_user_cart
 
   def home
     @banner_image_url = banner_image

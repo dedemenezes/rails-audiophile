@@ -1,4 +1,4 @@
-document.getElementById('number-holder').innerHTML = "<%= j render 'cart_items', cart: @user_cart %>"
+document.getElementById('number-holder').innerHTML = "<%= j render 'cart_items', cart: @updated_cart %>"
 <% if @cart_product.quantity.positive? %>
   document.getElementById("<%= @cart_product.id %>").innerHTML = "<%= @cart_product.quantity %>"
 <% else %>

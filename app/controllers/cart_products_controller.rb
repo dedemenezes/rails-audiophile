@@ -21,6 +21,7 @@ class CartProductsController < ApplicationController
 
   def destroy
     @cart_product = CartProduct.find(params[:id])
+    @updated_cart = @cart_product.cart
     authorize @cart_product
     respond_to do |format|
       if @cart_product.remove_product
