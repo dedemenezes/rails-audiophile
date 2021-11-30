@@ -6,9 +6,9 @@ class Product < ApplicationRecord
   has_many :pieces, through: :product_pieces, dependent: :destroy
   has_many_attached :photos
 
-  validates :name, :price, :description, :features, presence: true
+  validates :name, :price_cents, :description, :features, presence: true
   # validates :name, uniqueness: { case_sensitive: false }
-  validates :price, numericality: { greater_than: 10 }
+  validates :price_cents, numericality: { greater_than: 1000 }
 
   monetize :price_cents
 
@@ -17,7 +17,7 @@ class Product < ApplicationRecord
   def self.top_two
     # max_price = Product.maximum('price')
     # most_expensive_product = Product.find_by(price: max_price)
-    top_two = includes(:category).all.order('price').reverse.slice(0, 2)
+    top_two = all.order('price_cents').reverse.slice(0, 2)
     { first: top_two.first, second: top_two.second }
   end
 

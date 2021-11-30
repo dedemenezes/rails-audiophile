@@ -53,6 +53,10 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'rspec-rails', '~> 5.0.0'
   gem 'rails-controller-testing'
+  # Populate test DB
+  gem "factory_bot_rails"
+  # Clean test DB
+  gem 'database_cleaner-active_record'
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -67,10 +71,6 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  # Populate test DB
-  gem "factory_bot_rails"
-  # Clean test DB
-  gem 'database_cleaner-active_record'
   # Generate Fake data
   gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
 
