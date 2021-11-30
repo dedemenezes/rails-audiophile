@@ -25,10 +25,12 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 import { mobileMenu } from '../components/mobile_menu';
 import { animateOnClick } from '../components/animate_btn';
+import { checkoutAddress } from '../components/checkout_address';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   mobileMenu();
   animateOnClick();
+  checkoutAddress();
 });
