@@ -23,7 +23,7 @@ class CartProductsController < ApplicationController
     authorize @cart_product
     respond_to do |format|
       if @cart_product.remove_product
-        if @cart.is_empty?
+        if @cart.empty?
           format.html do
             redirect_to root_path, notice: "Your cart is now empty."
           end

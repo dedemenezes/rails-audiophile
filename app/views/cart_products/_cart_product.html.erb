@@ -5,7 +5,7 @@
     <%= link_to category_product_path(product.category, product) do %>
       <%= product.name.gsub(" #{product.category.name.capitalize}", "") %>
     <% end %>
-    <p class='product-price'><%= number_with_precision(cart_product.price, precision: 2) %></p>
+    <p class='product-price'><%= number_to_currency(cart_product.price, :unit => "R$ ", :separator => ",", :delimiter => ".") %></p>
   </div>
   <div class="card-action">
     <p class='gray-text'>x<span id="<%= cart_product.id %>"><%= cart_product.quantity %></span></p>

@@ -4,5 +4,5 @@ document.getElementById('number-holder').innerHTML = "<%= j render 'cart_items',
 <% else %>
   document.getElementById("card-<%= @cart_product.id %>").style.display = 'none'
 <% end %>
-document.getElementById("totalPrice").innerText = "<%= @cart.total_price %>"
+document.getElementById("totalPrice").innerText = "<%= number_to_currency(@cart.total_price, :unit => "R$ ", :separator => ",", :delimiter => ".") %>"
 document.querySelector('body').insertAdjacentHTML('beforeend', "<%= j render 'shared/flashes' %>")

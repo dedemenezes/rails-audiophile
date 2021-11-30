@@ -5,10 +5,9 @@ class Cart < ApplicationRecord
   has_many :products, through: :cart_products
 
   def total_price
-    total_price = cart_products.reduce(0) do |memo, element|
+    cart_products.reduce(0) do |memo, element|
       memo + (element.quantity * element.product.price)
     end
-    number_to_currency(total_price)
   end
 
   def product_count
@@ -30,7 +29,7 @@ class Cart < ApplicationRecord
     cart_products.where('product_id = ?', product.id).first
   end
 
-  def is_empty?
+  def empty?
     cart_products.empty?
   end
 end

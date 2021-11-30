@@ -12,15 +12,15 @@ class Product < ApplicationRecord
 
   # before_destroy :ensure_not_referenced_by_any_cart_product
 
-  def self.most_expensive
-    order(:price).reverse.first
-  end
-
   def self.top_two
     # max_price = Product.maximum('price')
     # most_expensive_product = Product.find_by(price: max_price)
     top_two = all.order('price').reverse.slice(0, 2)
     { first: top_two.first, second: top_two.second }
+  end
+
+  def self.most_expensive
+    top_two[:first]
   end
 
   def get_main_image(device)

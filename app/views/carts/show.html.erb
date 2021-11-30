@@ -1,7 +1,7 @@
 <%= form_with url: "/", method: :get do |form| %>
   <div class="">
     <div class="container">
-      <% if @cart.is_empty? %>
+      <% if @cart.empty? %>
         <%= link_to '#', class: 'close-icon' do %>
           <%= icon('fas', 'times') %>
         <% end %>
@@ -25,7 +25,7 @@
               </div>
               <div class="total summary-checkout">
                 <p class='gray-text'>TOTAL:</p>
-                <p class='bold-n-black' id='totalPrice'><%= @cart.total_price %></p>
+                <p class='bold-n-black' id='totalPrice'><%= number_to_currency(@cart.total_price, :unit => "R$ ", :separator => ",", :delimiter => ".") %></p>
               </div>
               <div class="shipping summary-checkout">
                 <p class='gray-text'>Shipping:</p>
