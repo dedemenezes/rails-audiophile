@@ -8,6 +8,14 @@
 </div>
 <div class="form-row">
   <div class="col">
+    <div id="map"
+      style="width: 100%;"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
+</div>
+<div class="form-row">
+  <div class="col">
     <div class="form-group">
       <%= form.label :zip_code, "ZIP code", class: "form-header-bold" %>
       <%= form.text_field :zip_code, class: 'form-control' %>

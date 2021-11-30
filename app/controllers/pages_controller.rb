@@ -16,7 +16,6 @@ class PagesController < ApplicationController
         lon: result.longitude
       }
     end
-    binding.pry
     respond_to do |format|
       if @results.present?
         format.js { render json: @results }
