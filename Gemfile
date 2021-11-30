@@ -40,6 +40,10 @@ gem 'simple_form'
 
 gem 'geocoder'
 
+# monetize columns
+gem 'money-rails'
+
+# online payment
 
 gem 'rubocop', require: false
 
