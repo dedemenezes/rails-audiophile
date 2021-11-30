@@ -12,7 +12,7 @@ module SeedsHelper
         name: product['name'],
         category: category,
         new: product['new'],
-        price: product['price'],
+        price: product['price'] * 100,
         description: product['description'],
         features: product['features']
       )
