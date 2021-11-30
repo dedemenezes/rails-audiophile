@@ -14,7 +14,8 @@ module SeedsHelper
         new: product['new'],
         price: product['price'],
         description: product['description'],
-        features: product['features']
+        features: product['features'],
+        slug: product['slug'],
       )
     end
 
