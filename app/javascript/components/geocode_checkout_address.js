@@ -12,6 +12,7 @@ const geocodeCheckoutAddress = () => {
         type: "get",
         data: `address=${deliveryAddress}`,
         success: function(data) {
+          console.log(data)
           const addressCoordinates = JSON.parse(data);
           initMapbox(addressCoordinates);
         },

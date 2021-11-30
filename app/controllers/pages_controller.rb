@@ -11,6 +11,7 @@ class PagesController < ApplicationController
   end
 
   def geocode_address
+    binding.pry
     @results = Geocoder.search(params[:address]).map do |result|
       { lat: result.latitude,
         lon: result.longitude

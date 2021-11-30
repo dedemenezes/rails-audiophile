@@ -26,6 +26,7 @@ import "bootstrap";
 import { mobileMenu } from '../components/mobile_menu';
 import { animateOnClick } from '../components/animate_btn';
 import { geocodeCheckoutAddress } from '../components/geocode_checkout_address';
+import { initAutocomplete } from "../plugins/init_autocomplete"
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -33,4 +34,5 @@ document.addEventListener('turbolinks:load', () => {
   mobileMenu();
   animateOnClick();
   geocodeCheckoutAddress();
+  initAutocomplete();
 });
