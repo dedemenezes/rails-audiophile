@@ -14,6 +14,7 @@ class OrdersController < ApplicationController
         payment_method_types: ['card'],
         line_items: [{
           name: cart_order.product.slug,
+          images: [cart_order.product.photos.first.key],
           amount: cart_order.product.price_cents,
           currency: 'brl',
           quantity: cart_order.quantity
@@ -22,6 +23,7 @@ class OrdersController < ApplicationController
         cancel_url: order_url(@order)
       )
       @order.update(checkout_session_id: session.id)
+      authorize @order
     end
     redirect_to new_order_payment_path(@order)
   end
