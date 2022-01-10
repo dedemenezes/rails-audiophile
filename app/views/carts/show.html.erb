@@ -1,4 +1,4 @@
-<%= form_with url: "/", method: :get do |form| %>
+<%= form_tag orders_path, method: :post do |form| %>
   <div class="">
     <div class="container">
       <% if @cart.empty? %>
@@ -39,7 +39,8 @@
                 <p class='gray-text'>Grand-total:</p>
                 <p class='bold-n-black'></p>
               </div>
-              <%= form.submit "Search", class: 'home-btn checkout-btn' %>
+              <%= hidden_field_tag 'cart_id', @cart.id %>
+              <%= submit_tag "Procceed checkout", class: 'home-btn checkout-btn' %>
             </div>
           </div>
         </div>

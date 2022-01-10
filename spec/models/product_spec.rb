@@ -36,8 +36,8 @@ RSpec.describe Product, type: :model do
   context "#most_expensive" do
     it 'should return the most expensive product' do
       3.times { |_| create(:product) }
-      highest_price = Product.maximum(:price)
-      expect(Product.most_expensive).to eq(Product.find_by(price: highest_price))
+      highest_price = Product.maximum(:price_cents)
+      expect(Product.most_expensive).to eq(Product.find_by(price_cents: highest_price))
     end
   end
 
@@ -45,7 +45,7 @@ RSpec.describe Product, type: :model do
     it 'should return two most expensive products' do
       3.times { |_| create(:product) }
       expect(Product.top_two[:first]).to eq(Product.most_expensive)
-      expect(Product.top_two[:second]).to eq(Product.order(:price).reverse.second)
+      expect(Product.top_two[:second]).to eq(Product.order(:price_cents).reverse.second)
     end
   end
 end

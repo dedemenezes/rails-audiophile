@@ -1,22 +1,22 @@
 <div class="form-row">
   <div class="col">
     <div class="form-group">
-      <%= form.label :first_name, "Name", class: "form-header-bold" %>
-      <%= form.text_field :first_name, class: 'form-control' %>
+      <%= label_tag 'first_name', "Name", class: "form-header-bold" %>
+      <%= text_field_tag 'first_name', nil, class: 'form-control' %>
     </div>
   </div>
   <div class="col">
     <div class="form-group">
-      <%= form.label :email, "Email address", class: "form-header-bold" %>
-      <%= form.text_field :email, class: 'form-control' %>
+      <%= label_tag 'email', "Email address", class: "form-header-bold" %>
+      <%= text_field_tag 'email', nil, class: 'form-control' %>
     </div>
   </div>
 </div>
 <div class="form-row">
   <div class="col col-sm-6">
     <div class="form-group">
-      <%= form.label :phone_number, "Phone number", class: "form-header-bold" %>
-      <%= form.text_field :phone_number, class: 'form-control' %>
+      <%= label_tag 'phone_number', "Phone number", class: "form-header-bold" %>
+      <%= text_field_tag 'phone_number', nil, class: 'form-control' %>
     </div>
   </div>
 </div>

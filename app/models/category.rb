@@ -5,6 +5,6 @@ class Category < ApplicationRecord
   validates :name, presence: true # , uniqueness: { case_sensitve: false }
 
   def self.top_earphone
-    find_by(name: 'earphones').products.order(:price).reverse.first
+    find_by(name: 'earphones').products.order(:price_cents).reverse.first
   end
 end

@@ -5,10 +5,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
+  validates :username, presence: true
+  validates :username, uniqueness: { case_sensitive: false }
   has_one :cart
   has_many :cart_products, through: :cart
   has_many :products, through: :cart_products
-  validates :first_name, :last_name, :username, :phone_number, presence: true
-  validates :username, uniqueness: { case_sensitive: false }
+  has_many :orders
 end
