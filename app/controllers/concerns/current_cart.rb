@@ -3,7 +3,8 @@ module CurrentCart
   private
 
   def find_user_cart
-    # @user_cart = Cart.find(session[:cart_id])
+    binding.pry
+    @user_cart = Cart.find(session[:cart_id])
   end
 
   def set_cart

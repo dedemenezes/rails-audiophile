@@ -20,11 +20,11 @@
 
     <div id="cart">
       <div id="number-holder">
-        <% unless @user_cart.products.empty? %>
-          <%= render 'cart_products/cart_items', cart: @user_cart %>
+        <% unless @cart.products.empty? %>
+          <%= render 'cart_products/cart_items', cart: @cart %>
         <% end %>
       </div>
-      <%= link_to cart_path(@user_cart.id) do %>
+      <%= link_to cart_path(@cart.id) do %>
         <%= image_tag "http://res.cloudinary.com/seguraocode/image/upload/v1632693479/icon-cart.png" %>
       <% end %>
     </div>

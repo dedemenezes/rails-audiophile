@@ -1,10 +1,10 @@
 class CartProductsController < ApplicationController
   skip_before_action :authenticate_user!
-  before_action :find_user_cart, only: %i[create destroy]
+  before_action :set_cart, only: %i[create destroy]
 
   def create
     product = Product.find(params[:product_id].to_i)
-    @cart_product = CartProduct.add_product(@user_cart, product)
+    @cart_product = CartProduct.add_product(@cart, product)
     @updated_cart = @cart_product.cart
     authorize @cart_product
     respond_to do |format|
@@ -25,7 +25,7 @@ class CartProductsController < ApplicationController
     authorize @cart_product
     respond_to do |format|
       if @cart_product.remove_product
-        if @user_cart.empty?
+        if @cart.empty?
           format.html do
             redirect_to root_path, notice: "Your cart is now empty."
           end

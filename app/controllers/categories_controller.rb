@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
   skip_before_action :authenticate_user!
   before_action :set_products
   before_action :all_categories, only: %i[show]
-  before_action :find_user_cart
+  # before_action :find_user_cart
 
   def index
     @categories = policy_scope(Category).includes(:product)

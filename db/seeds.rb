@@ -34,7 +34,7 @@ puts 'Attaching photos to Categories'
 Category.all.each do |category|
   public_id = category.name
   # Photos already uploaded to cloudinary. Use one time only.
-  # Cloudinary::Uploader.upload("app/assets/images/image-#{public_id}.png", { public_id: public_id })
+  Cloudinary::Uploader.upload("app/assets/images/image-#{public_id}.png", { public_id: public_id })
   file = SeedsHelper::CloudinaryHelper.get_url(public_id)
   SeedsHelper::AttachPhotos.to_category(category, file)
 end
