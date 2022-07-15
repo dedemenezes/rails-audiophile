@@ -23,13 +23,13 @@ class ApplicationController < ActionController::Base
   def banner_image
     if request.user_agent.match? /\b(Android|iPhone|Windows Phone|Opera Mobi|Kindle|BackBerry|PlayBook)\b/i
       session[:device] = 'mobile'
-      "home/mobile/image-header"
+      "home/mobile/image-header.jpg"
     elsif request.user_agent.match? /\b(iPad)\b/i
       session[:device] = 'tablet'
-      "home/talet/image-header"
+      "home/talet/image-header.jpg"
     else
       session[:device] = 'desktop'
-      "home/desktop/image-header"
+      "home/desktop/image-header.jpg"
     end
   end
 
