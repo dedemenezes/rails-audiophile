@@ -1,6 +1,6 @@
 <div class="bg-orange top-item">
   <%#= image_tag Cloudinary::Utils.cloudinary_url("speaker-zx9") %>
-  <%= image_tag "home/#{session[:device]}/image-speaker-zx9" %>
+  <%= image_tag "home/#{session[:device]}/image-speaker-zx9.jpg" %>
   <div class="top-content">
     <p class='top-item-name'><%= @top_two[:first].name_splitted.first.upcase %></p>
     <p class='top-item-name second-name'><%= @top_two[:first].name_splitted.second.upcase %></p>
@@ -9,7 +9,7 @@
   </div>
 </div>
 
-<div class="second-speaker" style="background-image: url(<%= asset_path("product-#{@top_two[:second].name.downcase.gsub(' ', '-')}/#{session[:device]}/image-gallery-3.jpg") %>)">
+<div class="second-speaker" style="background-image: url(<%= asset_path("product-#{image_folder_name(@top_two[:second])}/#{session[:device]}/image-gallery-3.jpg") %>)">
   <p><%= @top_two[:second].name.upcase %></p>
   <%= link_to  "SEE PRODUCT", category_product_path(@top_two[:second].category, @top_two[:second]), class: 'black-button' %>
 </div>
