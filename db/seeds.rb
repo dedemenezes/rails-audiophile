@@ -20,25 +20,27 @@ products = SeedsHelper::ParseData.json_db
 SeedsHelper::ShopData.create_shop(products)
 
 # Upload all images to cloudinary
-products.each_with_index do |product, index|
-  # Photos already uploaded to cloudinary. Use one time only.
-  # SeedsHelper::CloudinaryHelper.product_main_image(product)
-  # SeedsHelper::CloudinaryHelper.product_gallery_images(product)
+# products.each_with_index do |product, index|
+#   prod = Product.find_by_name(product['name'])
+#   next if prod&.photos.attached?
 
-  # Attach photos to all products
-  SeedsHelper::AttachPhotos.to_products(product, index)
-end
+#   # Photos already uploaded to cloudinary. Use one time only.
+#   # SeedsHelper::CloudinaryHelper.product_main_image(product)
+#   # SeedsHelper::CloudinaryHelper.product_gallery_images(product)
+
+#   # Attach photos to all products
+#   SeedsHelper::AttachPhotos.to_products(product, index)
+# end
 
 # Attach photo to category
-puts 'Attaching photos to Categories'
-Category.all.each do |category|
-  public_id = category.name
-  # Photos already uploaded to cloudinary. Use one time only.
-  Cloudinary::Uploader.upload("app/assets/images/image-#{public_id}.png", { public_id: public_id })
-  file = SeedsHelper::CloudinaryHelper.get_url(public_id)
-  SeedsHelper::AttachPhotos.to_category(category, file)
-end
-
+# puts 'Attaching photos to Categories'
+# Category.all.each do |category|
+#   public_id = category.name
+#   # Photos already uploaded to cloudinary. Use one time only.
+#   Cloudinary::Uploader.upload("app/assets/images/image-#{public_id}.png", { public_id: public_id })
+#   file = SeedsHelper::CloudinaryHelper.get_url(public_id)
+#   SeedsHelper::AttachPhotos.to_category(category, file)
+# end
 
 SeedsHelper::CreateUsers.test_users
 

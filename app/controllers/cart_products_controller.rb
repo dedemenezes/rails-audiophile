@@ -1,6 +1,5 @@
 class CartProductsController < ApplicationController
   skip_before_action :authenticate_user!
-  before_action :set_cart, only: %i[create destroy]
 
   def create
     product = Product.find(params[:product_id].to_i)

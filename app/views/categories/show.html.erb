@@ -3,7 +3,8 @@
     <% @category.products.each_with_index do |product, index| %>
       <li id="category-product">
         <div class="product-card">
-          <%= image_tag product.get_main_image(session[:device]), class: 'product-image' %>
+
+          <%= image_tag "product-#{image_folder_name(product)}/#{session[:device]}/image-product", class: 'product-image' %>
           <div class="product-content">
             <h3><%= product.name %></h3>
             <p><%= product.description %></p>
