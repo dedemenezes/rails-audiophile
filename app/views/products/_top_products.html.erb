@@ -16,7 +16,7 @@
 
 
 <div class="top_earphone">
-  <%= image_tag "product-#{image_folder_name(@top_earphone)}/#{session[:device]}/image-gallery-1", width: '100%', style: 'border-radius: 8px;' %>
+  <%= image_tag "product-#{image_folder_name(@top_earphone)}/#{session[:device]}/image-gallery-1.jpg", width: '100%', style: 'border-radius: 8px;' %>
   <div class="earphone-content">
     <p><%= @top_earphone.small_name.upcase %></p>
     <%= link_to  "SEE PRODUCT", category_product_path(@top_earphone.category, @top_earphone), class: 'outline-btn' %>
