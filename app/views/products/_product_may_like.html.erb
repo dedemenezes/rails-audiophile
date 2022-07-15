@@ -2,7 +2,8 @@
 <div class="may-like">
   <% Product.may_like_random(product).sample(3).each do |product| %>
     <div class="may-like-card">
-      <%= image_tag Cloudinary::Utils.cloudinary_url(product.get_main_image(session[:device]).filename), width: '100%' %>
+      <%# Cloudinary::Utils.cloudinary_url(product.get_main_image(session[:device]).filename) %>
+      <%= image_tag "product-#{image_folder_name(product)}/#{session[:device]}/image-product.jpg", width: '100%' %>
       <p class='small-name'><%= product.small_name %></p>
       <%= link_to  "SEE PRODUCT", category_product_path(product.category, product), class: 'may-like-btn' %>
     </div>

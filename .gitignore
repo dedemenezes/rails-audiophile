@@ -40,3 +40,6 @@ yarn-debug.log*
 *.swp
 .DS_Store
 .env*
+
+# Ignore challenge breifing
+/app/assets/challenge_briefing

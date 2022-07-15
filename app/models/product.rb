@@ -28,11 +28,6 @@ class Product < ApplicationRecord
     ActiveStorage::Blob.where('filename LIKE ?', placeholder).first
   end
 
-  def get_gallery_images(device)
-    name_use = name.gsub(" ", "_")
-    ActiveStorage::Blob.where('filename LIKE ?', "#{name_use}%#{device}%gallery%")
-  end
-
   def price_to_s
     if price.digits.size > 3
       price_str = price.to_s

@@ -1,5 +1,5 @@
 <div class="product-card">
-  <%= cl_image_tag @product.get_main_image(session[:device]).key, class: 'product-image' %>
+  <%= image_tag "product-#{image_folder_name(@product)}/#{session[:device]}/image-product.jpg", class: 'product-image' %>
   <div class="product-description">
     <% if @product.new? %>
       <h4 class='product-new'>NEW PRODUCT</h4>

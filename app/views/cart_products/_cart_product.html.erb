@@ -1,6 +1,6 @@
 <% product = cart_product.product %>
 <div class="summary-card my-3" id="card-<%= cart_product.id %>">
-  <%= cl_image_tag product.get_main_image(session[:device]).key, width: '25%', radius: 100 %>
+  <%=  image_tag "product-#{image_folder_name(product)}/#{session[:device]}/image-product.jpg", width: '25%', radius: 100 %>
   <div class="summary-content">
     <%= link_to category_product_path(product.category, product) do %>
       <%= product.name.gsub(" #{product.category.name.capitalize}", "") %>

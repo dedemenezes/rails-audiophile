@@ -1,9 +1,8 @@
   <div class="card-product">
-    <%= cl_image_tag category.photo.key, height: '212', class: 'card-image' %>
+    <%= image_tag "shared/desktop/image-#{category.name}.png", height: '212', class: 'card-image' %>
     <h3 class="card-title"><%= category.name.upcase %></h3>
     <div class="bottom-link d-flex align-items-center justify-content-center">
       <%= link_to  "Shop", category_path(category), class: 'card-link mr-2' %>
       <%= image_tag "http://res.cloudinary.com/seguraocode/image/upload/v1632693653/icon-arrow-right.png" %>
     </div>
   </div>
-
