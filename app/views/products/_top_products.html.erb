@@ -8,8 +8,8 @@
   </div>
 </div>
 
-
-<div class="second-speaker" style="background-image: url(<%= Cloudinary::Utils.cloudinary_url(@top_two[:second].get_gallery_images(session[:device]).third.filename)%>)">
+<%#= Cloudinary::Utils.cloudinary_url(@top_two[:second].get_gallery_images(session[:device]).third.filename)%>
+<div class="second-speaker" style="background-image: url(<%= asset_path("product-#{@top_two[:second].name.downcase.gsub(' ', '-')}/#{session[:device]}/image-gallery-3.jpg") %>)">
   <p><%= @top_two[:second].name.upcase %></p>
   <%= link_to  "SEE PRODUCT", category_product_path(@top_two[:second].category, @top_two[:second]), class: 'black-button' %>
 </div>
