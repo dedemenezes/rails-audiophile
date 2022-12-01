@@ -1,7 +1,7 @@
 module SeedsHelper
   module ParseData
     def self.json_db
-      file = "app/assets/challenge_briefing/starter-code/data.json"
+      file = Rails.root.join("db/data.json")
       JSON.parse(File.read(file))
     end
   end
