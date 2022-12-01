@@ -11,9 +11,9 @@
     <% end %>
 
     <div class="nav-menu">
-      <%= link_to  "Home", root_path, class: "navbar-link mx-4" %>
+      <%= link_to  "Home", root_path, class: "navbar-link basic-1 mx-4" %>
       <% @all_categories.each do |category| %>
-        <%= link_to  category.name.capitalize, category_path(category), class: "navbar-link mx-4" %>
+        <%= link_to  category.name.capitalize, category_path(category), class: "navbar-link mx-4 basic-1" %>
 
       <% end %>
     </div>
