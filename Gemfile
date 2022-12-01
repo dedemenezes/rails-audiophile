@@ -68,7 +68,7 @@ group :development do
   # Clean test DB
   gem 'database_cleaner-active_record'
   # Generate Fake data
-  gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'main'
+  gem 'faker', '~> 2.19.0'
 
   gem 'launchy'
 
