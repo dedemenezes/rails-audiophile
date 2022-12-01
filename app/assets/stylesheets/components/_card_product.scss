@@ -35,6 +35,10 @@
   color: rgb(170,170,170);
 }
 
+.card-product .bottom-link a.card-link:hover {
+  color: inherit;
+}
+
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
